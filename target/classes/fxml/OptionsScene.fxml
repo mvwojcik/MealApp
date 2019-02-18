@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.OptionsController">
+<AnchorPane prefHeight="400.0" prefWidth="392.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.OptionsController">
    <children>
-      <Circle fill="DODGERBLUE" layoutX="217.0" layoutY="156.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button layoutX="65.0" layoutY="306.0" mnemonicParsing="false" onAction="#doMenu" text="Powrót do menu" />
+      <Button layoutX="140.0" layoutY="316.0" mnemonicParsing="false" onAction="#doMenu" text="Powrót do menu" />
+      <Label layoutX="72.0" layoutY="55.0" text="Jezyk" />
+      <ChoiceBox fx:id="languageChoiceBox" layoutX="135.0" layoutY="51.0" prefWidth="150.0" />
+      <Label layoutX="72.0" layoutY="121.0" text="Waluta" />
+      <ChoiceBox fx:id="currencyChoiceBox" layoutX="135.0" layoutY="117.0" prefWidth="150.0" />
+      <Label layoutX="77.0" layoutY="192.0" text="Motyw" />
+      <RadioButton layoutX="145.0" layoutY="192.0" mnemonicParsing="false" text="Jasny">
+         <toggleGroup>
+            <ToggleGroup fx:id="themeGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="257.0" layoutY="192.0" mnemonicParsing="false" selected="true" text="Ciemny" toggleGroup="$themeGroup" />
    </children>
 </AnchorPane>

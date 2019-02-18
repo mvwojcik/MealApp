@@ -11,7 +11,6 @@ import static pl.mvwojcik.utils.FXMLManager.manager;
 
 
 public class MainController  {
-    public static MainController controller;
     public FXMLManager fxmlManager;
     @FXML
     public void initialize()
@@ -23,19 +22,32 @@ public class MainController  {
 
     @FXML
     void exploreOnAction(ActionEvent event) {
+        try {
+            manager.stage.setScene(manager.changeScene(manager.EXPLORESCENEPATH));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void registerOnAction(ActionEvent event) {
 
-        //otwieramy scene do rejestracji
+        try {
+            manager.stage.setScene(manager.changeScene(manager.REGISTERSCENEPATH));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @FXML
     void signUpOnAction(ActionEvent event) {
 
-        //otwieramy scene do logowania
+        try {
+            manager.stage.setScene(manager.changeScene(manager.LOGINSCENEPATH));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

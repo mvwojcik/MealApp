@@ -25,3 +25,13 @@
     -fx-background-radius: 20px;
     -fx-font-size: 12pt;
 }
+.label
+{
+    -fx-text-fill: -fx-primarytext;
+    -fx-font-size: 12pt;
+}
+.radio-button
+{
+    -fx-text-fill: -fx-primarytext;
+    -fx-font-size: 12pt;
+}

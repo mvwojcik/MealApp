@@ -14,6 +14,9 @@ public class FXMLManager implements Initializable {
 
     public static final String OPTIONSSCENEPATH = "/fxml/OptionsScene.fxml";
     public static final String MAINSCENEPATH= "/fxml/MainScene.fxml";
+    public static final String LOGINSCENEPATH= "/fxml/loginScene.fxml";
+    public static final String REGISTERSCENEPATH= "/fxml/registerScene.fxml";
+    public static final String EXPLORESCENEPATH= "/fxml/ExploreCategory.fxml";
 
     public Stage stage;
 
