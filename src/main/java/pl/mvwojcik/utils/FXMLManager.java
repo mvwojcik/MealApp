@@ -1,4 +1,4 @@
-package pl.mvwojcik;
+package pl.mvwojcik.utils;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,9 +9,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-
-import static pl.mvwojcik.MainController.controller;
 
 public class FXMLManager implements Initializable {
 
@@ -40,6 +37,7 @@ public static FXMLManager manager;
 
     public static FXMLLoader fxmlLoader(String path) throws IOException {
         FXMLLoader loader = new FXMLLoader(FXMLManager.class.getClass().getResource(path));
+        loader.setResources(ResourceBundle.getBundle("bundles.msgs"));
         //tutaj ustawia sie resources bundles loader.setresources
 return loader;
     }

@@ -1,24 +1,21 @@
-package pl.mvwojcik;
+package pl.mvwojcik.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-import static pl.mvwojcik.FXMLManager.manager;
+import static pl.mvwojcik.utils.FXMLManager.manager;
 
 public class OptionsController {
 
-    FXMLManager fxmlmanager;
-    @FXML
-    public void initialzie()
-    {
-        fxmlmanager = manager;
-    }
-    @FXML
-    void cofnij(ActionEvent event) {
 
+    @FXML
+    public void initialize()
+    {
     }
+
+
 
     @FXML
     void doMenu(ActionEvent event) {

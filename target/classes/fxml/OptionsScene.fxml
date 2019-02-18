@@ -4,10 +4,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.OptionsController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.OptionsController">
    <children>
       <Circle fill="DODGERBLUE" layoutX="217.0" layoutY="156.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
       <Button layoutX="65.0" layoutY="306.0" mnemonicParsing="false" onAction="#doMenu" text="Powrót do menu" />
-      <Button layoutX="297.0" layoutY="306.0" mnemonicParsing="false" onAction="#cofnij" text="cofnij" />
    </children>
 </AnchorPane>

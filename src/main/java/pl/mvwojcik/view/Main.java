@@ -1,9 +1,10 @@
-package pl.mvwojcik;
+package pl.mvwojcik.view;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import pl.mvwojcik.utils.FXMLManager;
 
-import static pl.mvwojcik.FXMLManager.manager;
+import static pl.mvwojcik.utils.FXMLManager.manager;
 
 public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {

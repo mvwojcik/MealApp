@@ -1,11 +1,12 @@
-package pl.mvwojcik;
+package pl.mvwojcik.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import pl.mvwojcik.utils.FXMLManager;
 
 import java.io.IOException;
 
-import static pl.mvwojcik.FXMLManager.manager;
+import static pl.mvwojcik.utils.FXMLManager.manager;
 
 
 
@@ -17,6 +18,27 @@ public class MainController  {
     {
         this.fxmlManager=manager;
     }
+
+
+
+    @FXML
+    void exploreOnAction(ActionEvent event) {
+    }
+
+    @FXML
+    void registerOnAction(ActionEvent event) {
+
+        //otwieramy scene do rejestracji
+
+    }
+
+    @FXML
+    void signUpOnAction(ActionEvent event) {
+
+        //otwieramy scene do logowania
+
+    }
+
     @FXML
     public void optionsOnClick(ActionEvent event) {
 
@@ -26,6 +48,13 @@ public class MainController  {
             e.printStackTrace();
         }
 
+    }
+
+
+    @FXML
+    void exitOnClick(ActionEvent event) {
+        manager.getStage().close();
+        //tutaj okienko dialogowe
     }
 
 }
