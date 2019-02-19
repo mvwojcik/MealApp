@@ -7,31 +7,15 @@ import java.io.IOException;
 
 import static pl.mvwojcik.utils.FXMLManager.manager;
 
-public class CategoryController {
+public class ExplorePageController {
 
     @FXML
-    void breakfastOnAction(ActionEvent event) {
+    void backOnAction(ActionEvent event) {
         try {
-            manager.stage.setScene(manager.changeScene(manager.EXPLOREPAGESCENEPATH));
+            manager.stage.setScene(manager.changeScene(manager.EXPLORESCENEPATH));
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    void dinnerOnAction(ActionEvent event) {
-
-    }
-
-
-    @FXML
-    void snacksOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void supperOnAction(ActionEvent event) {
-
     }
 
     @FXML
@@ -42,5 +26,6 @@ public class CategoryController {
             e.printStackTrace();
         }
     }
+
 
 }
