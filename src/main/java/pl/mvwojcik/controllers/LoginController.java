@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import pl.mvwojcik.user.model.User;
+import pl.mvwojcik.user.modelfx.UserFX;
 
 import java.io.IOException;
 
@@ -18,20 +18,20 @@ public class LoginController {
     @FXML
     private PasswordField userPasswordLoginTextField;
 
-    User user;
+    UserFX userFX;
     @FXML
     public void initialize()
     {
-        user = new User();
-        this.userLoginTextField.textProperty().bindBidirectional(this.user.usernameProperty());
-        this.userPasswordLoginTextField.textProperty().bindBidirectional(this.user.passwordProperty());
+        userFX = new UserFX();
+        this.userLoginTextField.textProperty().bindBidirectional(this.userFX.usernameProperty());
+        this.userPasswordLoginTextField.textProperty().bindBidirectional(this.userFX.passwordProperty());
     }
 
 
     @FXML
     void confirmOnAction(ActionEvent event) {
-        System.out.println(user);
-        //tutaj sprawdzenie najpier czy user istnieje a potem czy hasła pasują
+        System.out.println(userFX);
+        //tutaj sprawdzenie najpier czy userFX istnieje a potem czy hasła pasują
     }
 
     @FXML

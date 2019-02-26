@@ -21,10 +21,26 @@
     </build>
 
     <dependencies>
-    <dependency>
+        <!--Biblioteka do Hamburgera i innych fajnych rzeczy z javyfx -->
+
+        <dependency>
         <groupId>com.jfoenix</groupId>
         <artifactId>jfoenix</artifactId>
         <version>8.0.8</version>
     </dependency>
+        <!-- Postgree sql https://mvnrepository.com/artifact/postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.5</version>
+        </dependency>
+
+        <!-- ORMLite manager do db -->
+        <dependency>
+            <groupId>com.j256.ormlite</groupId>
+            <artifactId>ormlite-jdbc</artifactId>
+            <version>5.0</version>
+        </dependency>
     </dependencies>
+
 </project>
