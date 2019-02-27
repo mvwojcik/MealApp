@@ -8,11 +8,13 @@
 
 <AnchorPane prefHeight="358.0" prefWidth="357.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.LoginController">
    <children>
-      <Label layoutX="58.0" layoutY="152.0" text="User" />
-      <TextField fx:id="userLoginTextField" layoutX="151.0" layoutY="148.0" />
-      <Label layoutX="45.0" layoutY="221.0" text="Password" />
-      <PasswordField fx:id="userPasswordLoginTextField" layoutX="151.0" layoutY="217.0" />
-      <Button layoutX="248.0" layoutY="292.0" mnemonicParsing="false" onAction="#confirmOnAction" text="Confirm" />
-      <Button layoutX="56.0" layoutY="292.0" mnemonicParsing="false" onAction="#returnOnAction" text="Return to menu" />
+      <Label layoutX="56.0" layoutY="74.0" text="User" />
+      <TextField fx:id="userLoginTextField" layoutX="149.0" layoutY="70.0" />
+      <Label layoutX="43.0" layoutY="143.0" text="Password" />
+      <PasswordField fx:id="userPasswordLoginTextField" layoutX="149.0" layoutY="139.0" />
+      <Button layoutX="204.0" layoutY="292.0" mnemonicParsing="false" onAction="#confirmOnAction" prefHeight="39.0" prefWidth="125.0" text="Confirm" />
+      <Button layoutX="20.0" layoutY="292.0" mnemonicParsing="false" onAction="#returnOnAction" text="Return to menu" />
+      <Button layoutX="97.0" layoutY="232.0" mnemonicParsing="false" onAction="#forgotPasswordOnAction" text="Zapomniałem hasła" />
+      <Label fx:id="errmsglabel" layoutX="70.0" layoutY="192.0" text="Login lub hasło nieprawidłowe" underline="true" visible="false" />
    </children>
 </AnchorPane>

@@ -62,6 +62,20 @@ public User findByUsername(String temp)
 return null;
 }
 
+public User checkUsernameWithPassword(String username, String password)
+{
+    Dao dao = this. getUserDao();
+    try {
+        List<User> users = dao.query(dao.queryBuilder().where()
+                .eq("username",username).and()
+                .eq("password",password).prepare());
+        return users.get(0);
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return null;
+}
+
 public List<User> querryForAll()
 {
     Dao<User,Integer> dao = this.getUserDao();
