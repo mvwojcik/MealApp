@@ -12,6 +12,9 @@ public class UserConverter
         User user = new User();
 
         user.setUsername(userFX.getUsername());
+        user.setEmail(userFX.getEmail());
+        user.setPassword(userFX.getPassword());
+        user.setBornDate(userFX.getBornDate());
 
         return user;
     }

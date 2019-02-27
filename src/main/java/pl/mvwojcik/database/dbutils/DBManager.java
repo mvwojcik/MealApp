@@ -1,4 +1,4 @@
-package pl.mvwojcik.utils;
+package pl.mvwojcik.database.dbutils;
 
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
@@ -13,15 +13,14 @@ public class DBManager {
     private static ConnectionSource connectionSource;
 
 
-    //private static final String JDBC_DRIVER_HD = "jdbc:postgresql://localhost:5432/Szamka";
-    private static final String JDBC_DRIVER_HD = "jdbc:postgresql://localhost:50704/Szamka";
+    private static final String JDBC_DRIVER_HD = "jdbc:postgresql://localhost:5432/Szamka";
+    //private static final String JDBC_DRIVER_HD = "jdbc:postgresql://localhost:56859/Szamka";
     private static final String USER ="postgres";
-    private static final String PASSWORD = "Akademia1";
+    private static final String PASSWORD = "haslo1";
 
     public static void createConnectionSource(){
         try {
             connectionSource = new JdbcConnectionSource(JDBC_DRIVER_HD,USER,PASSWORD);
-            TableUtils.createTable(connectionSource,User.class);
             System.out.println("done");
         } catch (SQLException e) {
             System.out.println("err here");
@@ -32,19 +31,21 @@ public class DBManager {
     public static void createTable()
     {
         try {
-            TableUtils.createTable(connectionSource, User.class);
-            //TableUtils.createTableIfNotExists(connectionSource,User.class);
+            TableUtils.createTableIfNotExists(connectionSource, User.class);
         } catch (SQLException e) {
             System.out.println("err here2");
+            System.out.println(e.getMessage());
         }
     }
 
-    public static void insert()
+    public static void dropTable()
     {
-
+        try {
+            TableUtils.dropTable(connectionSource, User.class, true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-
-
 
     public static void closeConnectionSource()
     {
@@ -55,4 +56,7 @@ public class DBManager {
         }
     }
 
+    public static ConnectionSource getConnectionSource() {
+        return connectionSource;
+    }
 }

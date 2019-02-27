@@ -6,10 +6,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import pl.mvwojcik.database.dao.UserDao;
 import pl.mvwojcik.user.Converters.UserConverter;
 import pl.mvwojcik.user.model.User;
 import pl.mvwojcik.user.modelfx.UserFX;
-import pl.mvwojcik.utils.DBManager;
+import pl.mvwojcik.database.dbutils.DBManager;
 
 import java.io.IOException;
 
@@ -59,14 +60,12 @@ userFX.emailProperty().bindBidirectional(this.emailTextField.textProperty());
         //if not -> push to db
 
 DBManager.createConnectionSource();
-
-DBManager.createTable();
-
+//DBManager.createTable();
 User user = UserConverter.userFXtoUser(userFX);
 
-
-
-DBManager.closeConnectionSource();
+        UserDao userDao = new UserDao();
+        userDao.create(user);
+        DBManager.closeConnectionSource();
     }
 
     @FXML
