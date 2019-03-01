@@ -1,7 +1,6 @@
 package pl.mvwojcik.user.model;
 
 
-import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -22,8 +21,24 @@ public class User {
     @DatabaseField(columnName = "password", canBeNull = false)
     private String password; //tu trzeba cos madrego wymyślić
 
-    @DatabaseField(columnName = "born_date", dataType = DataType.DATE_STRING, format = "DD-MM-yyy")
+    @DatabaseField(columnName = "born_date")
     private Date bornDate;
+
+    @DatabaseField(columnName = "weight")
+    private double weight;
+
+    @DatabaseField(columnName = "height")
+    private double height;
+
+    @DatabaseField(columnName = "calouries")
+    private int calouries;
+
+    @DatabaseField(columnName = "gender")
+    private String gender;
+
+    @DatabaseField(columnName = "points")
+    private int points;
+
 
 
     public String getUsername() {
@@ -67,14 +82,59 @@ public class User {
         this.bornDate = bornDate;
     }
 
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public int getCalouries() {
+        return calouries;
+    }
+
+    public void setCalouries(int calouries) {
+        this.calouries = calouries;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-              /*  "id=" + id +*/
-                ", username='" + username + '\'' +
+                "username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", bornDate=" + bornDate +
+                ", weight=" + weight +
+                ", height=" + height +
+                ", calouries=" + calouries +
+                ", gender='" + gender + '\'' +
+                ", points=" + points +
                 '}';
     }
 }

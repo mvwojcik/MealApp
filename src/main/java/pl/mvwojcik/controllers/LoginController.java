@@ -7,13 +7,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import pl.mvwojcik.database.dao.UserDao;
 import pl.mvwojcik.database.dbutils.DBManager;
-import pl.mvwojcik.user.Converters.UserConverter;
 import pl.mvwojcik.user.model.User;
 import pl.mvwojcik.user.modelfx.UserFX;
 
 import java.io.IOException;
 
 import static pl.mvwojcik.utils.FXMLManager.manager;
+import static pl.mvwojcik.user.user.ActiveUser.user;
 
 public class LoginController {
 
@@ -45,17 +45,20 @@ public class LoginController {
         DBManager.createConnectionSource();
         UserDao userDao = new UserDao();
 
-        User user = userDao.checkUsernameWithPassword(userFX.getUsername(), userFX.getPassword());
+        User user1 = userDao.checkUsernameWithPassword(userFX.getUsername(), userFX.getPassword());
         DBManager.closeConnectionSource();
 
-        if (user != null) {
-            System.out.println("dziala");
+        if (user1 != null) {
             //zaladuj usera
-            this.returnOnAction();
+            user = user1;
+            try {
+                manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else {
             this.errmsglabel.setVisible(true);
         }
-        //tutaj sprawdzenie najpier czy userFX istnieje a potem czy hasła pasują
 
 
     }
@@ -63,7 +66,7 @@ public class LoginController {
     @FXML
     void returnOnAction() {
         try {
-            manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+            manager.stage.setScene(manager.changeScene(manager.WELCOMEPAGESCENEPATH));
         } catch (IOException e) {
             e.printStackTrace();
         }

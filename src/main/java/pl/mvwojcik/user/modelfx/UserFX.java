@@ -1,15 +1,12 @@
 package pl.mvwojcik.user.modelfx;
 
 import com.j256.ormlite.table.DatabaseTable;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
-@DatabaseTable(tableName = "Users")
 public class UserFX {
 
 
@@ -21,13 +18,28 @@ public class UserFX {
 
     private IntegerProperty age;
 
-    private Date bornDate;
+    private ObjectProperty<LocalDate> bornDate = new SimpleObjectProperty<>();
+
+    private StringProperty gender;
+
+    private DoubleProperty weight;
+
+    private DoubleProperty height;
+
+    private IntegerProperty calouries;
+
+    private IntegerProperty points;
 
     public UserFX() {
         this.username = new SimpleStringProperty("");
         this.password = new SimpleStringProperty("");
         this.email = new SimpleStringProperty("");
         this.age = new SimpleIntegerProperty(0);
+        this.gender = new SimpleStringProperty("");
+        this.weight = new SimpleDoubleProperty(0.0);
+        this.height = new SimpleDoubleProperty(0.0);
+        this.calouries = new SimpleIntegerProperty(0);
+        this.points = new SimpleIntegerProperty(0);
     }
 
     public String getUsername() {
@@ -78,12 +90,76 @@ public class UserFX {
         this.age.set(age);
     }
 
-    public Date getBornDate() {
+    public LocalDate getBornDate() {
+        return bornDate.get();
+    }
+
+    public ObjectProperty<LocalDate> bornDateProperty() {
         return bornDate;
     }
 
-    public void setBornDate(Date bornDate) {
-        this.bornDate = bornDate;
+    public void setBornDate(LocalDate bornDate) {
+        this.bornDate.set(bornDate);
+    }
+
+    public String getGender() {
+        return gender.get();
+    }
+
+    public StringProperty genderProperty() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender.set(gender);
+    }
+
+    public double getWeight() {
+        return weight.get();
+    }
+
+    public DoubleProperty weightProperty() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight.set(weight);
+    }
+
+    public double getHeight() {
+        return height.get();
+    }
+
+    public DoubleProperty heightProperty() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height.set(height);
+    }
+
+    public int getCalouries() {
+        return calouries.get();
+    }
+
+    public IntegerProperty calouriesProperty() {
+        return calouries;
+    }
+
+    public void setCalouries(int calouries) {
+        this.calouries.set(calouries);
+    }
+
+    public int getPoints() {
+        return points.get();
+    }
+
+    public IntegerProperty pointsProperty() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points.set(points);
     }
 
     @Override
@@ -94,6 +170,11 @@ public class UserFX {
                 ", email=" + email +
                 ", age=" + age +
                 ", bornDate=" + bornDate +
+                ", gender=" + gender +
+                ", weight=" + weight +
+                ", height=" + height +
+                ", calouries=" + calouries +
+                ", points=" + points +
                 '}';
     }
 }

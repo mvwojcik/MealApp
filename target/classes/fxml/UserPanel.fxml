@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="120.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.UserPanelController">
    <children>
-      <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="120.0" text="Twój Profil" />
-      <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="120.0" text="Plan żywienia" />
-      <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="120.0" text="ulubione" />
-      <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="120.0" text="dodaj nową" />
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="120.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css">
+         <children>
+            <Button mnemonicParsing="false" onAction="#profileOnAction" prefHeight="400.0" prefWidth="120.0" text="Twój Profil" />
+            <Button mnemonicParsing="false" onAction="#mealPlanOnAction" prefHeight="400.0" prefWidth="120.0" text="Plan żywienia" />
+            <Button mnemonicParsing="false" onAction="#favouritesOnAction" prefHeight="400.0" prefWidth="120.0" text="ulubione" />
+            <Button mnemonicParsing="false" onAction="#addNewMealOnAction" prefHeight="400.0" prefWidth="120.0" text="dodaj nową" />
+         </children>
+      </VBox>
    </children>
-</VBox>
+</AnchorPane>

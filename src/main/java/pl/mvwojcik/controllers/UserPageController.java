@@ -2,6 +2,11 @@ package pl.mvwojcik.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import pl.mvwojcik.user.Converters.UserConverter;
+import pl.mvwojcik.user.modelfx.UserFX;
+
+import static pl.mvwojcik.user.user.ActiveUser.user;
+
 
 public class UserPageController {
 
@@ -30,6 +35,14 @@ public class UserPageController {
     @FXML
     public void initialize()
     {
-        //tutaj poloczenie z db i ustawienie tych pól
+       UserFX userfx =  UserConverter.userToUserFX(user);
+this.username.setText(userfx.getUsername());
+this.email.setText(userfx.getEmail());
+this.weight.setText(Double.toString(userfx.getWeight()));
+this.height.setText(Double.toString(userfx.getHeight()));
+this.calories.setText(Integer.toString(userfx.getCalouries()));
+this.points.setText(Integer.toString(userfx.getPoints()));
+//this.age.setText(userfx.getBornDate().toString());
+
     }
 }

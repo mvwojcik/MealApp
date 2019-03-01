@@ -7,6 +7,7 @@ import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import pl.mvwojcik.database.dbutils.DBManager;
 import pl.mvwojcik.user.model.User;
+import pl.mvwojcik.user.modelfx.UserFX;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -62,6 +63,24 @@ public User findByUsername(String temp)
 return null;
 }
 
+public boolean checkIfAvailable(UserFX userFx)
+{
+    Dao<User,Integer> dao = this.getUserDao();
+    QueryBuilder queryBuilder = dao.queryBuilder();
+    try {
+        List<User> users =  dao.query( queryBuilder.where().eq("username",userFx.getUsername())
+                .or().eq("email",userFx.getEmail()).prepare());
+        if (users.size()==0)
+        {
+            return true;
+        }
+        return false;
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return false;
+}
+
 public User checkUsernameWithPassword(String username, String password)
 {
     Dao dao = this. getUserDao();
@@ -69,7 +88,12 @@ public User checkUsernameWithPassword(String username, String password)
         List<User> users = dao.query(dao.queryBuilder().where()
                 .eq("username",username).and()
                 .eq("password",password).prepare());
+        if(users.size()==0)
+        {
+            return null;
+        }
         return users.get(0);
+
     } catch (SQLException e) {
         e.printStackTrace();
     }

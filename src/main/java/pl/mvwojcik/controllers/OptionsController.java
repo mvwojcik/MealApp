@@ -1,9 +1,11 @@
 package pl.mvwojcik.controllers;
 
-import javafx.event.ActionEvent;
+import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXHamburger;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ToggleGroup;
+import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.io.IOException;
 
@@ -11,10 +13,18 @@ import static pl.mvwojcik.utils.FXMLManager.manager;
 
 public class OptionsController {
 
+    @FXML
+    private JFXHamburger hamburger;
+
+    @FXML
+    private JFXDrawer drawer;
+
 
     @FXML
     public void initialize()
-    {languageChoiceBox.getItems().add("Polski");
+    {
+        UserToolbarUtils.initDrawer(drawer,hamburger);
+    languageChoiceBox.getItems().add("Polski");
     languageChoiceBox.getItems().add("Angielski");//trzeba jakoś z bundles powiązać
     currencyChoiceBox.getItems().addAll("PLN","EURO","FUNT","DOLAR");
 
@@ -23,7 +33,7 @@ public class OptionsController {
 
 
     @FXML
-    void doMenu(ActionEvent event) {
+    void doMenu() {
         try {
             manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
         } catch (IOException e) {

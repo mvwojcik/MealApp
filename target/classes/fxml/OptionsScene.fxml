@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="392.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.OptionsController">
-   <children>
-      <Button layoutX="140.0" layoutY="316.0" mnemonicParsing="false" onAction="#doMenu" text="Powrót do menu" />
-      <Label layoutX="72.0" layoutY="55.0" text="Jezyk" />
-      <ChoiceBox fx:id="languageChoiceBox" layoutX="135.0" layoutY="51.0" prefWidth="150.0" />
-      <Label layoutX="72.0" layoutY="121.0" text="Waluta" />
-      <ChoiceBox fx:id="currencyChoiceBox" layoutX="135.0" layoutY="117.0" prefWidth="150.0" />
-      <Label layoutX="77.0" layoutY="192.0" text="Motyw" />
-      <RadioButton layoutX="145.0" layoutY="192.0" mnemonicParsing="false" text="Jasny">
-         <toggleGroup>
-            <ToggleGroup fx:id="themeGroup" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton layoutX="257.0" layoutY="192.0" mnemonicParsing="false" selected="true" text="Ciemny" toggleGroup="$themeGroup" />
-   </children>
-</AnchorPane>
+<BorderPane stylesheets="@../stylesheets/MainSceneStylesheet0.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.OptionsController">
+   <center>
+      <AnchorPane prefHeight="500.0" prefWidth="600.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css">
+         <children>
+            <Button layoutX="140.0" layoutY="431.0" mnemonicParsing="false" onAction="#doMenu" text="Powrót do menu" />
+            <Label layoutX="366.0" layoutY="183.0" text="Jezyk" />
+            <ChoiceBox fx:id="languageChoiceBox" layoutX="449.0" layoutY="177.0" prefWidth="150.0" />
+            <Label layoutX="45.0" layoutY="248.0" text="Waluta" />
+            <ChoiceBox fx:id="currencyChoiceBox" layoutX="108.0" layoutY="244.0" prefWidth="150.0" />
+            <Label layoutX="51.0" layoutY="316.0" text="Motyw" />
+            <RadioButton layoutX="119.0" layoutY="316.0" mnemonicParsing="false" text="Jasny">
+               <toggleGroup>
+                  <ToggleGroup fx:id="themeGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="231.0" layoutY="316.0" mnemonicParsing="false" selected="true" text="Ciemny" toggleGroup="$themeGroup" />
+            <JFXHamburger fx:id="hamburger" alignment="TOP_RIGHT" layoutX="534.0" layoutY="4.0" prefHeight="20.0" prefWidth="51.0" AnchorPane.rightAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </center>
+   <right>
+      <JFXDrawer fx:id="drawer" direction="RIGHT" miniDrawerSize="0.0" prefWidth="0.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

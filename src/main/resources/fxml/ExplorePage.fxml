@@ -11,10 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane stylesheets="@../stylesheets/MainSceneStylesheet0.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.ExplorePageController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.ExplorePageController">
    <children>
-      <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="767.0">
+      <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="800.0">
          <top>
             <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="761.0" spacing="25.0" BorderPane.alignment="TOP_LEFT">
                <children>
