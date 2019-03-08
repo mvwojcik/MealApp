@@ -3,14 +3,23 @@ package pl.mvwojcik.user.model;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import pl.mvwojcik.user.user.ActiveUser;
+import pl.mvwojcik.utils.OptionsUtils;
 
 import java.util.Date;
 
 @DatabaseTable(tableName = "Userss")
 public class User {
+    public User() {
+        this.userSettingsId= OptionsUtils.defaultUserSettings();
+    }
+
 
     //@DatabaseField(columnName = "id", generatedId = true/*, unique = true, canBeNull = false*/)
     // private int id;
+
+    @DatabaseField(columnName = "userSettingsId",foreign = true)
+    private UserSettings userSettingsId;
 
     @DatabaseField(columnName = "username", unique = true, canBeNull = false)
     private String username;
@@ -121,6 +130,14 @@ public class User {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public UserSettings getUserSettingsId() {
+        return userSettingsId;
+    }
+
+    public void setUserSettingsId(UserSettings userSettingsId) {
+        this.userSettingsId = userSettingsId;
     }
 
     @Override

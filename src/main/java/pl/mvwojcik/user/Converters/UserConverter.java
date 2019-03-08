@@ -31,6 +31,7 @@ public class UserConverter
     {
         UserFX userFX = new UserFX();
         userFX.usernameProperty().setValue(user.getUsername());
+        userFX.emailProperty().setValue(user.getEmail());
         userFX.setPassword(user.getPassword());
         userFX.setBornDate(UserToolbarUtils.convertToLocalDate(user.getBornDate()));
         userFX.setGender(user.getGender());

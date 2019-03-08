@@ -14,7 +14,6 @@ public class DBManager {
 
 
     private static final String JDBC_DRIVER_HD = "jdbc:postgresql://localhost:5432/Szamka";
-    //private static final String JDBC_DRIVER_HD = "jdbc:postgresql://localhost:56859/Szamka";
     private static final String USER ="postgres";
     private static final String PASSWORD = "haslo1";
 

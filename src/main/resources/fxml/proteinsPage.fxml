@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXScrollPane?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.ProteinsPageController">
+   <right>
+      <VBox prefHeight="600.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXToggleButton prefHeight="60.0" prefWidth="223.0" selected="true" text="Beef" />
+            <JFXToggleButton prefHeight="60.0" prefWidth="223.0" selected="true" text="Veggies" />
+            <JFXToggleButton prefHeight="60.0" prefWidth="223.0" selected="true" text="Supplements" />
+            <JFXToggleButton prefHeight="60.0" prefWidth="223.0" selected="true" text="Gluten" />
+            <JFXToggleButton prefHeight="60.0" prefWidth="223.0" selected="true" text="Mleko" />
+            <Label prefHeight="21.0" prefWidth="212.0" text="Min Kcal" />
+            <JFXSlider majorTickUnit="50.0" max="500.0" minorTickCount="100" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+            <Label prefHeight="21.0" prefWidth="212.0" text="Max Kcal" />
+            <JFXSlider blockIncrement="0.0" majorTickUnit="50.0" max="500.0" minorTickCount="100" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="500.0" />
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="21.0" prefWidth="609.0" text="PROTEINS" />
+            <JFXScrollPane prefHeight="566.0" prefWidth="700.0">
+               <children>
+                  <JFXListView fx:id="listView" prefHeight="349.0" prefWidth="500.0" />
+               </children>
+            </JFXScrollPane>
+            <HBox prefHeight="15.0" prefWidth="700.0">
+               <children>
+                  <JFXButton />
+                  <JFXButton />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

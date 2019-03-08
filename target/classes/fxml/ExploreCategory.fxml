@@ -6,23 +6,22 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.CategoryController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.CategoryController">
    <center>
       <VBox prefHeight="500.0" prefWidth="400.0" spacing="30.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css">
          <children>
             <Label alignment="TOP_CENTER" prefHeight="18.0" prefWidth="358.0" text="Ideas for..." />
-            <Button mnemonicParsing="false" onAction="#breakfastOnAction" prefHeight="32.0" prefWidth="202.0" text="Breakfast">
+            <Button mnemonicParsing="false" onAction="#breakfastOnAction" prefHeight="32.0" prefWidth="202.0" text="Beef">
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#dinnerOnAction" prefHeight="39.0" prefWidth="206.0" text="dinner">
+            <Button mnemonicParsing="false" onAction="#dinnerOnAction" prefHeight="39.0" prefWidth="206.0" text="Carbos">
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#supperOnAction" prefHeight="39.0" prefWidth="206.0" text="supper">
+            <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#supperOnAction" prefHeight="39.0" prefWidth="206.0" text="fats">
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin>

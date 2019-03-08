@@ -1,5 +1,9 @@
 package pl.mvwojcik.controllers;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -19,38 +23,33 @@ import static pl.mvwojcik.user.user.ActiveUser.user;
 
 public class RegisterController {
 
-    @FXML
-    private TextField usernameTextField;
 
     @FXML
-    private PasswordField passwordTextField;
+    private JFXTextField usernameTextField;
 
     @FXML
-    private PasswordField repeatPasswordTextField;
+    private JFXPasswordField passwordTextField;
 
     @FXML
-    private TextField emailTextField;
+    private JFXPasswordField repeatPasswordTextField;
 
     @FXML
-    private DatePicker ageDatePicker;
+    private JFXTextField emailTextField;
 
     @FXML
-    private Label usernameSign;
+    private JFXDatePicker ageDatePicker;
 
     @FXML
-    private Label ageLabel;
+    private JFXTextField heightTextField;
 
     @FXML
-    private TextField heightTextField;
+    private JFXTextField weightTextField;
 
     @FXML
-    private TextField weightTextField;
+    private JFXTextField caloriesTextField;
 
     @FXML
-    private TextField cpdTextField;
-
-    @FXML
-    private ComboBox<?> genderComboBox;
+    private JFXComboBox<?> genderComboBox;
 
     UserFX userFX;
 

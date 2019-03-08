@@ -12,7 +12,7 @@ public class CategoryController {
     @FXML
     void breakfastOnAction(ActionEvent event) {
         try {
-            manager.stage.setScene(manager.changeScene(manager.EXPLOREPAGESCENEPATH));
+            manager.stage.setScene(manager.changeScene(manager.PROTEINSPAGESCENEPATH));
         } catch (IOException e) {
             e.printStackTrace();
         }

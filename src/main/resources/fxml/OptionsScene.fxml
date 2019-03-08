@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXDrawer?>
-<?import com.jfoenix.controls.JFXHamburger?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -10,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane stylesheets="@../stylesheets/MainSceneStylesheet0.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.OptionsController">
+<BorderPane fx:id="borderpane" stylesheets="@../stylesheets/MainSceneStylesheet0.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.OptionsController">
    <center>
       <AnchorPane prefHeight="500.0" prefWidth="600.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css">
          <children>
@@ -26,11 +24,8 @@
                </toggleGroup>
             </RadioButton>
             <RadioButton layoutX="231.0" layoutY="316.0" mnemonicParsing="false" selected="true" text="Ciemny" toggleGroup="$themeGroup" />
-            <JFXHamburger fx:id="hamburger" alignment="TOP_RIGHT" layoutX="534.0" layoutY="4.0" prefHeight="20.0" prefWidth="51.0" AnchorPane.rightAnchor="0.0" />
+            <Button layoutX="378.0" layoutY="438.0" mnemonicParsing="false" onAction="#confirmOnAction" text="Potwierdź" />
          </children>
       </AnchorPane>
    </center>
-   <right>
-      <JFXDrawer fx:id="drawer" direction="RIGHT" miniDrawerSize="0.0" prefWidth="0.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css" BorderPane.alignment="CENTER" />
-   </right>
 </BorderPane>

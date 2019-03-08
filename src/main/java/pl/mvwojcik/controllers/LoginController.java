@@ -1,10 +1,11 @@
 package pl.mvwojcik.controllers;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import pl.mvwojcik.database.dao.UserDao;
 import pl.mvwojcik.database.dbutils.DBManager;
 import pl.mvwojcik.user.model.User;
@@ -18,15 +19,12 @@ import static pl.mvwojcik.user.user.ActiveUser.user;
 public class LoginController {
 
     @FXML
-    private TextField userLoginTextField;
-
+    private JFXTextField userLoginTextField;
 
     @FXML
     private Label errmsglabel;
-
-
     @FXML
-    private PasswordField userPasswordLoginTextField;
+    private JFXPasswordField userPasswordLoginTextField;
 
     UserFX userFX;
 
@@ -39,9 +37,7 @@ public class LoginController {
 
 
     @FXML
-    void confirmOnAction(ActionEvent event) {
-        System.out.println(userFX);
-
+    void confirmOnAction() {
         DBManager.createConnectionSource();
         UserDao userDao = new UserDao();
 
@@ -57,6 +53,10 @@ public class LoginController {
                 e.printStackTrace();
             }
         } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Podano złe haslo");
+            alert.showAndWait();
             this.errmsglabel.setVisible(true);
         }
 

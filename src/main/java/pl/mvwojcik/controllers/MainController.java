@@ -1,9 +1,8 @@
 package pl.mvwojcik.controllers;
 
-import com.jfoenix.controls.JFXDrawer;
-import com.jfoenix.controls.JFXHamburger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.layout.BorderPane;
 import pl.mvwojcik.utils.FXMLManager;
 import pl.mvwojcik.utils.UserToolbarUtils;
 
@@ -15,19 +14,17 @@ import static pl.mvwojcik.utils.FXMLManager.manager;
 
 public class MainController  {
     @FXML
-    private JFXHamburger hamburger;
-
-    @FXML
-    private JFXDrawer drawer;
-
+    private BorderPane borderpane;
 
     public FXMLManager fxmlManager;
 
     @FXML
     public void initialize()
     {
+
         this.fxmlManager=manager;
-        UserToolbarUtils.initDrawer(this.drawer,this.hamburger);
+        UserToolbarUtils.loadToolbars(borderpane);
+
     }
 
 

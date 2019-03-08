@@ -41,6 +41,12 @@
             <artifactId>ormlite-jdbc</artifactId>
             <version>5.0</version>
         </dependency>
+        <!-- fontavesome -->
+        <dependency>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx</artifactId>
+            <version>8.9</version>
+        </dependency>
     </dependencies>
 
 </project>

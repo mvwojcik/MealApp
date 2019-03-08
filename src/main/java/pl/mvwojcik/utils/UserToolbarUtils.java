@@ -7,6 +7,7 @@ import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import pl.mvwojcik.user.modelfx.UserFX;
 
@@ -21,28 +22,45 @@ public class UserToolbarUtils {
     public static void initDrawer(JFXDrawer drawer, JFXHamburger hamburger)
     {
 
+
         try {
-           AnchorPane toolbar = FXMLLoader.load(UserFX.class.getClass().getResource("/fxml/UserPanel.fxml"));
+           VBox toolbar = FXMLLoader.load(UserFX.class.getClass().getResource("/fxml/UserPanel.fxml"));
             drawer.setSidePane(toolbar);
            // drawer.setDefaultDrawerSize(100);
-            toolbar.autosize();
-
+            //toolbar.autosize();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        final HamburgerSlideCloseTransition task = new HamburgerSlideCloseTransition(hamburger);
+        HamburgerSlideCloseTransition task = new HamburgerSlideCloseTransition(hamburger);
         task.setRate(-1);
         hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, (Event event) -> {
-
+            drawer.toggle();
+        });
+        drawer.setOnDrawerOpening((event) -> {
             task.setRate(task.getRate() * -1);
             task.play();
-            if (drawer.isClosed()) {
-                drawer.open();
-
-            } else {
-                drawer.close();
-            }
+            drawer.toFront();
         });
+        drawer.setOnDrawerClosed((event) -> {
+            drawer.toBack();
+            task.setRate(task.getRate() * -1);
+            task.play();
+        });
+
+
+    }
+
+    public static void loadToolbars(BorderPane pane)
+    {
+        try {
+            System.out.println("LALA");
+            VBox vBox = FXMLLoader.load(UserToolbarUtils.class.getClass().getResource("/fxml/UserPanel.fxml"));
+            System.out.println("XA");
+pane.setLeft(vBox);
+System.out.println("LALALALA");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
