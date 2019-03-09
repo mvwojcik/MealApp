@@ -2,16 +2,24 @@ package pl.mvwojcik.controllers;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
-import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import pl.mvwojcik.user.modelfx.IngredientFX;
+import pl.mvwojcik.user.modelfx.ListIngredientsModel;
+import pl.mvwojcik.utils.FillDB;
 import pl.mvwojcik.utils.UserToolbarUtils;
+
+import static pl.mvwojcik.user.user.ActiveUser.user;
+import static pl.mvwojcik.utils.FXMLManager.manager;
+
 
 public class ProteinsPageController {
 
@@ -20,41 +28,42 @@ public class ProteinsPageController {
     private BorderPane borderPane;
 
     @FXML
-    private JFXListView<String> listView;
+    private TableView<IngredientFX> tableView;
+    @FXML
+    private TableColumn<IngredientFX, String> iconColumn;
 
-    private ObservableList list= FXCollections.observableArrayList("lala","lalala","kakaka");
-    static class Cell extends ListCell<String>
-    {
-        HBox hbox = new HBox();
-        JFXComboBox jfxComboBox = new JFXComboBox();
+    @FXML
+    private TableColumn<IngredientFX, String> nameColumn;
 
-        Label nameOfFood = new Label();
-        public Cell()
-        {
-            super();
+    @FXML
+    private TableColumn<IngredientFX, Number> kcalColumn;
 
-            hbox.getChildren().addAll(nameOfFood,jfxComboBox);
+    @FXML
+    private TableColumn<IngredientFX, Number> proteinsColumn;
 
-        }
+    @FXML
+    private TableColumn<IngredientFX, Number> carbohydratesCloumn;
 
-        public void updateItem(String name, boolean empty)
-        {
-            super.updateItem(name,empty);
-            setText(null);
-            setGraphic(null);
+    @FXML
+    private TableColumn<IngredientFX, Number> fatColumn;
 
-            if (name !=null && !empty)
-            {
-                nameOfFood.setText(name);
-                setGraphic(hbox);
-            }
-        }
+    private ListIngredientsModel ingredientsList;
 
-    }
     @FXML
     private void initialize() {
-        this.listView.setItems(list);
-        listView.setCellFactory(param -> new Cell());
+        FillDB.fillIngredientsDB();
+        this.ingredientsList=new ListIngredientsModel();
+        this.ingredientsList.init();//tu try
+    this.tableView.setItems(this.ingredientsList.getIngredientFXObservableList());
+
+    this.nameColumn.setCellValueFactory(param -> param.getValue().nameProperty());
+    this.carbohydratesCloumn.setCellValueFactory(param -> param.getValue().carbohydratesProperty());
+    this.proteinsColumn.setCellValueFactory(param -> param.getValue().proteinsProperty());
+    this.fatColumn.setCellValueFactory(param -> param.getValue().fatProperty());
+    this.kcalColumn.setCellValueFactory(param -> param.getValue().kcalProperty());
+
+
+
         UserToolbarUtils.loadToolbars(this.borderPane);
     }
 

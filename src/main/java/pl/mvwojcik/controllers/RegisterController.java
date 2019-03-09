@@ -6,19 +6,16 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
 import pl.mvwojcik.database.dao.UserDao;
-import pl.mvwojcik.user.Converters.UserConverter;
+import pl.mvwojcik.Converters.UserConverter;
 import pl.mvwojcik.user.model.User;
 import pl.mvwojcik.user.modelfx.UserFX;
 import pl.mvwojcik.database.dbutils.DBManager;
 import pl.mvwojcik.user.user.ActiveUser;
-import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.io.IOException;
 
 import static pl.mvwojcik.utils.FXMLManager.manager;
-import static pl.mvwojcik.user.user.ActiveUser.user;
 
 
 public class RegisterController {

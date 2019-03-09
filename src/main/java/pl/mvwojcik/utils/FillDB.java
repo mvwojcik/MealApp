@@ -1,6 +1,8 @@
 package pl.mvwojcik.utils;
 
+import pl.mvwojcik.database.dao.IngredientsDao;
 import pl.mvwojcik.database.dao.UserSettingsDao;
+import pl.mvwojcik.user.model.Ingredient;
 import pl.mvwojcik.user.model.UserSettings;
 
 public class FillDB {
@@ -23,5 +25,19 @@ public class FillDB {
 
         dao.create(settings1);
 
+    }
+
+    public static void fillIngredientsDB()
+    {
+        Ingredient ingredient = new Ingredient();
+        ingredient.setProteins(100.2);
+        ingredient.setKcal(204);
+        ingredient.setFat(123);
+        ingredient.setCarbohydrates(12);
+        ingredient.setName("MIENSO");
+
+        IngredientsDao ingredientsDao = new IngredientsDao();
+        ingredientsDao.createTableifNotExsist();
+        ingredientsDao.create(ingredient);
     }
 }

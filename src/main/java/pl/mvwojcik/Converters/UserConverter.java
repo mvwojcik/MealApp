@@ -1,4 +1,4 @@
-package pl.mvwojcik.user.Converters;
+package pl.mvwojcik.Converters;
 
 import pl.mvwojcik.user.model.User;
 import pl.mvwojcik.user.modelfx.UserFX;

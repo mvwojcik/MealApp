@@ -11,6 +11,7 @@ import pl.mvwojcik.utils.UserToolbarUtils;
 import java.io.IOException;
 
 import static pl.mvwojcik.utils.FXMLManager.manager;
+import static pl.mvwojcik.user.user.ActiveUser.user;
 
 public class ExplorePageController {
 

@@ -2,9 +2,9 @@ package pl.mvwojcik.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import pl.mvwojcik.user.Converters.UserConverter;
+import pl.mvwojcik.Converters.UserConverter;
 import pl.mvwojcik.user.modelfx.UserFX;
-import pl.mvwojcik.user.model.UserSettings.*;
+
 import static pl.mvwojcik.user.user.ActiveUser.user;
 
 

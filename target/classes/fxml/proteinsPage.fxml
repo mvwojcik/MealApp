@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXScrollPane?>
 <?import com.jfoenix.controls.JFXSlider?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.ProteinsPageController">
    <right>
@@ -33,13 +33,22 @@
             <Label prefHeight="21.0" prefWidth="609.0" text="PROTEINS" />
             <JFXScrollPane prefHeight="566.0" prefWidth="700.0">
                <children>
-                  <JFXListView fx:id="listView" prefHeight="349.0" prefWidth="500.0" />
+                  <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="iconColumn" prefWidth="51.0" text="Icon" />
+                      <TableColumn fx:id="nameColumn" prefWidth="84.0" text="Name" />
+                        <TableColumn fx:id="kcalColumn" prefWidth="97.0" text="KCAL" />
+                        <TableColumn fx:id="proteinsColumn" prefWidth="130.0" text="Proteins" />
+                        <TableColumn fx:id="carbohydratesCloumn" minWidth="0.0" prefWidth="121.0" text="Carbohydrates" />
+                        <TableColumn fx:id="fatColumn" prefWidth="116.0" text="Fat" />
+                    </columns>
+                  </TableView>
                </children>
             </JFXScrollPane>
             <HBox prefHeight="15.0" prefWidth="700.0">
                <children>
-                  <JFXButton />
-                  <JFXButton />
+                  <JFXButton buttonType="RAISED" text="Back" />
+                  <JFXButton text="Menu" />
                </children>
             </HBox>
          </children>

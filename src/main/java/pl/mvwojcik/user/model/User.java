@@ -3,6 +3,7 @@ package pl.mvwojcik.user.model;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+
 import pl.mvwojcik.user.user.ActiveUser;
 import pl.mvwojcik.utils.OptionsUtils;
 
@@ -47,6 +48,9 @@ public class User {
 
     @DatabaseField(columnName = "points")
     private int points;
+
+    @DatabaseField(columnName = "imageurl")
+    private String imageurl;
 
 
 
@@ -138,6 +142,14 @@ public class User {
 
     public void setUserSettingsId(UserSettings userSettingsId) {
         this.userSettingsId = userSettingsId;
+    }
+
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 
     @Override
