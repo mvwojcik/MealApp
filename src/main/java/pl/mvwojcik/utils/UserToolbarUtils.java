@@ -1,10 +1,14 @@
 package pl.mvwojcik.utils;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -74,5 +78,15 @@ System.out.println("LALALALA");
         return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
+    public static JFXButton createButton(String string)
+    {
+        JFXButton button = new JFXButton();
+        Image image = new Image(UserToolbarUtils.class.getClass().getResource(string).toString());
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(20);
+        imageView.setFitWidth(20);
+        button.setGraphic(imageView);
+        return button;
+    }
 
 }

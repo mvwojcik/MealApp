@@ -33,7 +33,6 @@
                      <children>
                         <JFXTextField fx:id="heightTextField" labelFloat="true" promptText="Height" />
                         <JFXTextField fx:id="weightTextField" promptText="Weight" />
-                        <JFXTextField fx:id="caloriesTextField" promptText="CaloriesPerDay" />
                         <JFXComboBox fx:id="genderComboBox" prefHeight="31.0" prefWidth="289.0" promptText="Gender" />
                      </children>
                      <padding>

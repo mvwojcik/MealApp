@@ -5,10 +5,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pl.mvwojcik.user.modelfx.IngredientFX;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 public class FXMLManager implements Initializable {
 
@@ -24,13 +26,16 @@ public class FXMLManager implements Initializable {
 
     public Stage stage;
 
+    public static Stack <String> lastpages ;
 
-public static FXMLManager manager;
+    public static FXMLManager manager;
 
     public FXMLManager(Stage stage)
     {
+        lastpages = new Stack<>();
         this.stage = stage;
     }
+
     public static void setStage(Stage stage,String path) throws IOException {
         stage.setScene(changeScene(path));
         stage.setTitle("Szamka");
@@ -38,6 +43,14 @@ public static FXMLManager manager;
     }
 
     public static Scene changeScene(String path) throws IOException {
+        if (path.equals(MAINSCENEPATH))
+        {
+            lastpages = new Stack<>();
+        }
+        else if(!path.equals(WELCOMEPAGESCENEPATH))
+        {
+            lastpages.push(path);
+        }
         Parent parent = fxmlLoader(path).load();
         return new Scene(parent);
     }
@@ -48,9 +61,26 @@ public static FXMLManager manager;
         //tutaj ustawia sie resources bundles loader.setresources
 return loader;
     }
+
+    public static Stage openIngredientPage(IngredientFX ingredientFX)
+    {
+        Stage stage = new Stage();
+        try {
+            setStage(stage,"/fxml/IngredientContent.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stage;
+    }
+
     public Stage getStage()
     {
         return this.stage;
+    }
+
+    public static ResourceBundle getResourceBundle()
+    {
+        return ResourceBundle.getBundle("bundles.msgs");
     }
 
     public void initialize(URL location, ResourceBundle resources) {

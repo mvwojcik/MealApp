@@ -22,8 +22,8 @@ public class IngredientsConverter {
         ingredient.setCarbohydrates(ingredientFX.getCarbohydrates());
         ingredient.setFat(ingredientFX.getFat());
         ingredient.setKcal(ingredientFX.getKcal());
- ingredient.setProteins(ingredientFX.getProteins());
- ingredient.setName(ingredientFX.getName());
- return ingredient;
+        ingredient.setProteins(ingredientFX.getProteins());
+        ingredient.setName(ingredientFX.getName());
+        return ingredient;
     }
 }

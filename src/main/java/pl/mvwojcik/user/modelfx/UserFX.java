@@ -30,6 +30,8 @@ public class UserFX {
 
     private IntegerProperty points;
 
+    private StringProperty iconURL;
+
     public UserFX() {
         this.username = new SimpleStringProperty("");
         this.password = new SimpleStringProperty("");
@@ -40,6 +42,7 @@ public class UserFX {
         this.height = new SimpleDoubleProperty(0.0);
         this.calouries = new SimpleIntegerProperty(0);
         this.points = new SimpleIntegerProperty(0);
+        this.iconURL = new SimpleStringProperty("");
     }
 
     public String getUsername() {
@@ -162,6 +165,18 @@ public class UserFX {
         this.points.set(points);
     }
 
+    public String getIconURL() {
+        return iconURL.get();
+    }
+
+    public StringProperty iconURLProperty() {
+        return iconURL;
+    }
+
+    public void setIconURL(String iconURL) {
+        this.iconURL.set(iconURL);
+    }
+
     @Override
     public String toString() {
         return "UserFX{" +
@@ -175,6 +190,7 @@ public class UserFX {
                 ", height=" + height +
                 ", calouries=" + calouries +
                 ", points=" + points +
+                ", iconURL=" + iconURL +
                 '}';
     }
 }

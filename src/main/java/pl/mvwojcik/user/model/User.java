@@ -155,7 +155,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
+                "userSettingsId=" + userSettingsId +
+                ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", bornDate=" + bornDate +
@@ -164,6 +165,7 @@ public class User {
                 ", calouries=" + calouries +
                 ", gender='" + gender + '\'' +
                 ", points=" + points +
+                ", imageurl='" + imageurl + '\'' +
                 '}';
     }
 }

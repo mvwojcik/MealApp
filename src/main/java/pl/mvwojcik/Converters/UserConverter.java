@@ -24,6 +24,7 @@ public class UserConverter
         user.setWeight(userFX.getWeight());
         user.setCalouries(userFX.getCalouries());
         user.setPoints(userFX.getPoints());
+        user.setImageurl(userFX.getIconURL());
         return user;
     }
 
@@ -40,7 +41,7 @@ public class UserConverter
         userFX.setCalouries(user.getCalouries());
         userFX.setPoints(user.getPoints());
         userFX.setAge(Period.between(UserToolbarUtils.convertToLocalDate(user.getBornDate()), LocalDate.now()).getYears());
-
+userFX.setIconURL(user.getImageurl());
 
         return userFX;
     }

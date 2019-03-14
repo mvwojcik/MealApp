@@ -1,6 +1,8 @@
 package pl.mvwojcik.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
@@ -9,6 +11,10 @@ import static pl.mvwojcik.user.user.ActiveUser.user;
 
 
 public class UserPanelController {
+
+    @FXML
+    private ImageView iconImage;
+
     @FXML
     void addNewMealOnAction() {
 
@@ -32,4 +38,11 @@ public class UserPanelController {
             e.printStackTrace();
         }
     }
+    @FXML
+    private void initialize()
+    {
+        this.iconImage.setImage(new Image(this.getClass().getResource(user.getImageurl()).toString()));
+
+    }
+
 }

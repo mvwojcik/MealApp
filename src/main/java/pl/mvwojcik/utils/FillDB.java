@@ -29,15 +29,35 @@ public class FillDB {
 
     public static void fillIngredientsDB()
     {
-        Ingredient ingredient = new Ingredient();
-        ingredient.setProteins(100.2);
-        ingredient.setKcal(204);
-        ingredient.setFat(123);
-        ingredient.setCarbohydrates(12);
-        ingredient.setName("MIENSO");
-
         IngredientsDao ingredientsDao = new IngredientsDao();
         ingredientsDao.createTableifNotExsist();
+
+        Ingredient ingredient = new Ingredient();
+        ingredient.setProteins(72);
+        ingredient.setKcal(320);
+        ingredient.setFat(7.6);
+        ingredient.setCarbohydrates(4.2);
+        ingredient.setName("Kurczak");
+
         ingredientsDao.create(ingredient);
+
+        ingredient.setProteins(82);
+        ingredient.setKcal(390);
+        ingredient.setFat(10.4);
+        ingredient.setCarbohydrates(2.2);
+        ingredient.setName("Łosoś");
+
+        ingredientsDao.create(ingredient);
+
+        ingredient.setProteins(62);
+        ingredient.setKcal(490);
+        ingredient.setFat(20.4);
+        ingredient.setCarbohydrates(14.2);
+        ingredient.setName("Tuńczyk");
+
+        ingredientsDao.create(ingredient);
+
+
+
     }
 }

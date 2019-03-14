@@ -47,8 +47,8 @@
             </JFXScrollPane>
             <HBox prefHeight="15.0" prefWidth="700.0">
                <children>
-                  <JFXButton buttonType="RAISED" text="Back" />
-                  <JFXButton text="Menu" />
+                  <JFXButton buttonType="RAISED" onAction="#backOnAction" text="Back" />
+                  <JFXButton onAction="#menuOnAction" text="Menu" />
                </children>
             </HBox>
          </children>

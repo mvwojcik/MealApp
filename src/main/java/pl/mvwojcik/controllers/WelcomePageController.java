@@ -2,6 +2,7 @@ package pl.mvwojcik.controllers;
 
 
 import javafx.fxml.FXML;
+import pl.mvwojcik.database.dbutils.DBManager;
 import pl.mvwojcik.user.model.User;
 
 import java.io.IOException;
@@ -44,7 +45,8 @@ public class WelcomePageController {
             trialUser.setUsername("trialUser");
             trialUser.setPoints(0);
             user=trialUser;
-
+            DBManager.createConnectionSource();
+            DBManager.closeConnectionSource();
         } catch (IOException e) {
             e.printStackTrace();
         }
