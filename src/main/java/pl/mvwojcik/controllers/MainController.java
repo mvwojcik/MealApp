@@ -11,51 +11,40 @@ import java.io.IOException;
 import static pl.mvwojcik.utils.FXMLManager.manager;
 import static pl.mvwojcik.user.user.ActiveUser.user;
 
+public class MainController {
+  @FXML private BorderPane borderpane;
 
+  public FXMLManager fxmlManager;
 
-public class MainController  {
-    @FXML
-    private BorderPane borderpane;
+  @FXML
+  public void initialize() {
 
-    public FXMLManager fxmlManager;
+    this.fxmlManager = manager;
+    UserToolbarUtils.loadToolbars(borderpane);
+  }
 
-    @FXML
-    public void initialize()
-    {
-
-        this.fxmlManager=manager;
-        UserToolbarUtils.loadToolbars(borderpane);
-
+  @FXML
+  void exploreOnAction() {
+    try {
+      manager.stage.setScene(manager.changeScene(manager.EXPLORESCENEPATH));
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+  }
 
+  @FXML
+  public void optionsOnClick(ActionEvent event) {
 
-
-    @FXML
-    void exploreOnAction() {
-        try {
-            manager.stage.setScene(manager.changeScene(manager.EXPLORESCENEPATH));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    try {
+      manager.stage.setScene(manager.changeScene(manager.OPTIONSSCENEPATH));
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+  }
 
-    @FXML
-    public void optionsOnClick(ActionEvent event) {
-
-        try {
-            manager.stage.setScene(manager.changeScene(manager.OPTIONSSCENEPATH));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-
-    @FXML
-    void exitOnClick(ActionEvent event) {
-        manager.getStage().close();
-        //tutaj okienko dialogowe
-    }
-
-
+  @FXML
+  void exitOnClick(ActionEvent event) {
+    manager.getStage().close();
+    // tutaj okienko dialogowe
+  }
 }

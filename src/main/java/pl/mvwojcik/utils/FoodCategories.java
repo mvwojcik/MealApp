@@ -1,4 +1,3 @@
 package pl.mvwojcik.utils;
 
-public class FoodCategories {
-}
+public class FoodCategories {}

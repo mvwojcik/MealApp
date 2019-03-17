@@ -18,70 +18,65 @@ import static pl.mvwojcik.user.user.ActiveUser.user;
 
 public class LoginController {
 
-    @FXML
-    private JFXTextField userLoginTextField;
+  @FXML private JFXTextField userLoginTextField;
 
-    @FXML
-    private Label errmsglabel;
-    @FXML
-    private JFXPasswordField userPasswordLoginTextField;
+  @FXML private Label errmsglabel;
+  @FXML private JFXPasswordField userPasswordLoginTextField;
 
-    UserFX userFX;
+  UserFX userFX;
 
-    @FXML
-    public void initialize() {
-        userFX = new UserFX();
-        this.userLoginTextField.textProperty().bindBidirectional(this.userFX.usernameProperty());
-        this.userPasswordLoginTextField.textProperty().bindBidirectional(this.userFX.passwordProperty());
+  @FXML
+  public void initialize() {
+    userFX = new UserFX();
+    this.userLoginTextField.textProperty().bindBidirectional(this.userFX.usernameProperty());
+    this.userPasswordLoginTextField
+        .textProperty()
+        .bindBidirectional(this.userFX.passwordProperty());
+  }
+
+  @FXML
+  void confirmOnAction() {
+    DBManager.createConnectionSource();
+    UserDao userDao = new UserDao();
+
+    User user1 = userDao.checkUsernameWithPassword(userFX.getUsername(), userFX.getPassword());
+    DBManager.closeConnectionSource();
+
+    if (user1 != null) {
+      // zaladuj usera
+      user = user1;
+      try {
+        manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    } else {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setHeaderText(null);
+      alert.setContentText("Podano złe haslo");
+      alert.showAndWait();
+      this.errmsglabel.setVisible(true);
+    }
+  }
+
+  @FXML
+  void returnOnAction() {
+    try {
+      manager.stage.setScene(manager.changeScene(manager.WELCOMEPAGESCENEPATH));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @FXML
+  void forgotPasswordOnAction(ActionEvent event) {
+    DBManager.createConnectionSource();
+    UserDao userDao = new UserDao();
+    User user = userDao.findByUsername(userFX.getUsername());
+    if (user != null) {
+      System.out.println("mozna wyslac maila z przypomnieniem, gdzies jest taka bibliteka na bank");
     }
 
-
-    @FXML
-    void confirmOnAction() {
-        DBManager.createConnectionSource();
-        UserDao userDao = new UserDao();
-
-        User user1 = userDao.checkUsernameWithPassword(userFX.getUsername(), userFX.getPassword());
-        DBManager.closeConnectionSource();
-
-        if (user1 != null) {
-            //zaladuj usera
-            user = user1;
-            try {
-                manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Podano złe haslo");
-            alert.showAndWait();
-            this.errmsglabel.setVisible(true);
-        }
-
-
-    }
-
-    @FXML
-    void returnOnAction() {
-        try {
-            manager.stage.setScene(manager.changeScene(manager.WELCOMEPAGESCENEPATH));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @FXML
-    void forgotPasswordOnAction(ActionEvent event) {
-        DBManager.createConnectionSource();
-        UserDao userDao = new UserDao();
-        User user = userDao.findByUsername(userFX.getUsername());
-        if (user != null) {
-            System.out.println("mozna wyslac maila z przypomnieniem, gdzies jest taka bibliteka na bank");
-        }
-
-        DBManager.closeConnectionSource();
-    }
+    DBManager.closeConnectionSource();
+  }
 }

@@ -20,61 +20,50 @@ import static pl.mvwojcik.user.user.ActiveUser.user;
 
 public class OptionsController {
 
-    @FXML
-    BorderPane borderpane;
+  @FXML BorderPane borderpane;
 
-    ResourceBundle bundle;
-    @FXML
-    public void initialize()
-    {
+  ResourceBundle bundle;
 
-        UserToolbarUtils.loadToolbars(borderpane);
-        try{
-bundle = ResourceBundle.getBundle("bundles/msgs");}
-        catch(MissingResourceException exception)
-        {
-            System.out.println("Bundles Error");
-        }
+  @FXML
+  public void initialize() {
+
+    UserToolbarUtils.loadToolbars(borderpane);
+    try {
+      bundle = ResourceBundle.getBundle("bundles/msgs");
+    } catch (MissingResourceException exception) {
+      System.out.println("Bundles Error");
+    }
     languageChoiceBox.getItems().addAll(UserSettings.languages);
     currencyChoiceBox.getItems().addAll(UserSettings.currencies);
+  }
 
+  @FXML
+  void doMenu() {
+    try {
+      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+  }
 
+  @FXML private ChoiceBox<String> languageChoiceBox;
 
+  @FXML private ChoiceBox<String> currencyChoiceBox;
 
-    @FXML
-    void doMenu() {
-        try {
-            manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+  @FXML private ToggleGroup themeGroup;
 
-    @FXML
-    private ChoiceBox<String> languageChoiceBox;
+  @FXML
+  void confirmOnAction() {
+    UserSettings userSettings = new UserSettings();
+    userSettings.setCurrency(this.currencyChoiceBox.getSelectionModel().getSelectedItem());
+    userSettings.setLanguage(this.languageChoiceBox.getSelectionModel().getSelectedItem());
+    userSettings.setTheme(this.themeGroup.getSelectedToggle().toString());
 
-    @FXML
-    private ChoiceBox<String> currencyChoiceBox;
+    user.setUserSettingsId(userSettings);
 
-    @FXML
-    private ToggleGroup themeGroup;
-
-
-    @FXML
-    void confirmOnAction() {
-        UserSettings userSettings = new UserSettings();
-        userSettings.setCurrency(this.currencyChoiceBox.getSelectionModel().getSelectedItem());
-        userSettings.setLanguage(this.languageChoiceBox.getSelectionModel().getSelectedItem());
-        userSettings.setTheme(this.themeGroup.getSelectedToggle().toString());
-
-        user.setUserSettingsId(userSettings);
-
-        // zrobic metode w userdao wrzucającą ustawienia do db potem create
-        // potem to na dole  albo ogólnie zrobić kilka możliwych opcji i przypisywać ,zobzczymy
-        UserDao userDao = new UserDao();
-        //update
-    }
-
-
+    // zrobic metode w userdao wrzucającą ustawienia do db potem create
+    // potem to na dole  albo ogólnie zrobić kilka możliwych opcji i przypisywać ,zobzczymy
+    UserDao userDao = new UserDao();
+    // update
+  }
 }

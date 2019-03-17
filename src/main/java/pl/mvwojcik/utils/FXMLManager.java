@@ -14,76 +14,69 @@ import java.util.Stack;
 
 public class FXMLManager implements Initializable {
 
-    public static final String OPTIONSSCENEPATH = "/fxml/OptionsScene.fxml";
-    public static final String MAINSCENEPATH= "/fxml/MainScene.fxml";
-    public static final String LOGINSCENEPATH= "/fxml/loginScene.fxml";
-    public static final String REGISTERSCENEPATH= "/fxml/registerScene.fxml";
-    public static final String EXPLORESCENEPATH= "/fxml/ExploreCategory.fxml";
-    public static final String EXPLOREPAGESCENEPATH= "/fxml/ExplorePage.fxml";
-    public static final String USERPAGESCENEPATH= "/fxml/UserPage.fxml";
-    public static final String WELCOMEPAGESCENEPATH= "/fxml/WelcomePage.fxml";
-    public static final String PROTEINSPAGESCENEPATH= "/fxml/proteinsPage.fxml";
+  public static final String OPTIONSSCENEPATH = "/fxml/OptionsScene.fxml";
+  public static final String MAINSCENEPATH = "/fxml/MainScene.fxml";
+  public static final String LOGINSCENEPATH = "/fxml/loginScene.fxml";
+  public static final String REGISTERSCENEPATH = "/fxml/registerScene.fxml";
+  public static final String EXPLORESCENEPATH = "/fxml/ExploreCategory.fxml";
+  public static final String EXPLOREPAGESCENEPATH = "/fxml/ExplorePage.fxml";
+  public static final String USERPAGESCENEPATH = "/fxml/UserPage.fxml";
+  public static final String WELCOMEPAGESCENEPATH = "/fxml/WelcomePage.fxml";
+  public static final String PROTEINSPAGESCENEPATH = "/fxml/proteinsPage.fxml";
 
-    public Stage stage;
+  public Stage stage;
 
-    public static Stack <String> lastpages ;
+  public static Stack<String> lastpages;
 
-    public static FXMLManager manager;
+  public static FXMLManager manager;
 
-    public FXMLManager(Stage stage)
-    {
-        lastpages = new Stack<>();
-        this.stage = stage;
+  public FXMLManager(Stage stage) {
+    lastpages = new Stack<>();
+    this.stage = stage;
+  }
+
+  public static void setStage(Stage stage, String path) throws IOException {
+    stage.setScene(changeScene(path));
+    stage.setTitle("Szamka");
+    stage.show();
+  }
+
+  public static Scene changeScene(String path) throws IOException {
+    if (path.equals(MAINSCENEPATH)) {
+      lastpages = new Stack<>();
+    } else if (!path.equals(WELCOMEPAGESCENEPATH)) {
+      lastpages.push(path);
     }
+    Parent parent = fxmlLoader(path).load();
+    return new Scene(parent);
+  }
 
-    public static void setStage(Stage stage,String path) throws IOException {
-        stage.setScene(changeScene(path));
-        stage.setTitle("Szamka");
-        stage.show();
-    }
+  public static FXMLLoader fxmlLoader(String path) throws IOException {
+    FXMLLoader loader = new FXMLLoader(FXMLManager.class.getClass().getResource(path));
+    loader.setResources(ResourceBundle.getBundle("bundles.msgs"));
+    // tutaj ustawia sie resources bundles loader.setresources
+    return loader;
+  }
 
-    public static Scene changeScene(String path) throws IOException {
-        if (path.equals(MAINSCENEPATH))
-        {
-            lastpages = new Stack<>();
-        }
-        else if(!path.equals(WELCOMEPAGESCENEPATH))
-        {
-            lastpages.push(path);
-        }
-        Parent parent = fxmlLoader(path).load();
-        return new Scene(parent);
+  public static Stage openIngredientPage(IngredientFX ingredientFX) {
+    Stage stage = new Stage();
+    try {
+      setStage(stage, "/fxml/IngredientContent.fxml");
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+    return stage;
+  }
 
-    public static FXMLLoader fxmlLoader(String path) throws IOException {
-        FXMLLoader loader = new FXMLLoader(FXMLManager.class.getClass().getResource(path));
-        loader.setResources(ResourceBundle.getBundle("bundles.msgs"));
-        //tutaj ustawia sie resources bundles loader.setresources
-return loader;
-    }
+  public Stage getStage() {
+    return this.stage;
+  }
 
-    public static Stage openIngredientPage(IngredientFX ingredientFX)
-    {
-        Stage stage = new Stage();
-        try {
-            setStage(stage,"/fxml/IngredientContent.fxml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return stage;
-    }
+  public static ResourceBundle getResourceBundle() {
+    return ResourceBundle.getBundle("bundles.msgs");
+  }
 
-    public Stage getStage()
-    {
-        return this.stage;
-    }
-
-    public static ResourceBundle getResourceBundle()
-    {
-        return ResourceBundle.getBundle("bundles.msgs");
-    }
-
-    public void initialize(URL location, ResourceBundle resources) {
-        manager=this;
-    }
+  public void initialize(URL location, ResourceBundle resources) {
+    manager = this;
+  }
 }

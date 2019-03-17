@@ -15,53 +15,51 @@ import static pl.mvwojcik.user.user.ActiveUser.user;
 
 public class ExplorePageController {
 
+  @FXML private JFXHamburger hamburger;
 
-    @FXML
-    private JFXHamburger hamburger;
+  @FXML private JFXDrawer drawer;
 
-    @FXML
-    private JFXDrawer drawer;
+  @FXML private GridPane gridPane;
 
-    @FXML
-    private GridPane gridPane;
+  @FXML
+  public void initialize() {
 
-    @FXML
-    public void initialize() {
+    UserToolbarUtils.initDrawer(this.drawer, this.hamburger);
 
-        UserToolbarUtils.initDrawer(this.drawer,this.hamburger);
-
-        try {
-            gridPane.add(FXMLLoader.load(ExplorePageController.class.getClass().getResource("/fxml/Content.fxml")),0,0);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
-        try {
-            gridPane.add(FXMLLoader.load(ExplorePageController.class.getClass().getResource("/fxml/Content.fxml")),0,1);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
+    try {
+      gridPane.add(
+          FXMLLoader.load(ExplorePageController.class.getClass().getResource("/fxml/Content.fxml")),
+          0,
+          0);
+    } catch (IOException e) {
+      System.out.println(e.getMessage());
     }
 
-
-    @FXML
-    void backOnAction(ActionEvent event) {
-        try {
-            manager.stage.setScene(manager.changeScene(manager.EXPLORESCENEPATH));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    try {
+      gridPane.add(
+          FXMLLoader.load(ExplorePageController.class.getClass().getResource("/fxml/Content.fxml")),
+          0,
+          1);
+    } catch (IOException e) {
+      System.out.println(e.getMessage());
     }
+  }
 
-    @FXML
-    void returnOnAction(ActionEvent event) {
-        try {
-            manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+  @FXML
+  void backOnAction(ActionEvent event) {
+    try {
+      manager.stage.setScene(manager.changeScene(manager.EXPLORESCENEPATH));
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+  }
 
-
+  @FXML
+  void returnOnAction(ActionEvent event) {
+    try {
+      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 }

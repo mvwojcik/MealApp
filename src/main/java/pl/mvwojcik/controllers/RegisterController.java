@@ -119,7 +119,7 @@ public class RegisterController {
     userFX.setGender(this.genderComboBox.getSelectionModel().getSelectedItem().toString());
     userFX.setPoints(10);
     userFX.setWeight(Double.valueOf(this.weightTextField.getText()));
-    userFX.setHeight(Double.valueOf(this.weightTextField.getText()));
+    userFX.setHeight(Double.valueOf(this.heightTextField.getText()));
     userFX.setCalouries(0);
     if ((userFX.getGender().equals("man"))) {
       userFX.setIconURL("/images/man1.png");
@@ -214,7 +214,7 @@ public class RegisterController {
               }
             });
   }
-//to trzeba sie dostac jakos do tego tekstu pod jfxtextfield
+  // to trzeba sie dostac jakos do tego tekstu pod jfxtextfield
   private void initPasswordValidator() {
     RequiredFieldValidator validator = new RequiredFieldValidator();
     validator.setMessage("Passwords aren't the same");

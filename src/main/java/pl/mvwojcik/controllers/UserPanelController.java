@@ -9,40 +9,31 @@ import java.io.IOException;
 import static pl.mvwojcik.utils.FXMLManager.manager;
 import static pl.mvwojcik.user.user.ActiveUser.user;
 
-
 public class UserPanelController {
 
-    @FXML
-    private ImageView iconImage;
+  @FXML private ImageView iconImage;
 
-    @FXML
-    void addNewMealOnAction() {
+  @FXML
+  void addNewMealOnAction() {}
 
+  @FXML
+  void favouritesOnAction() {}
+
+  @FXML
+  void mealPlanOnAction() {}
+
+  @FXML
+  void profileOnAction() {
+    try {
+      manager.stage.setScene(manager.changeScene(manager.USERPAGESCENEPATH));
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+  }
 
-    @FXML
-    void favouritesOnAction() {
+  @FXML
+  private void initialize() {
+   // this.iconImage.setImage(new Image(this.getClass().getResource(user.getImageurl()).toString()));
 
-    }
-
-    @FXML
-    void mealPlanOnAction() {
-
-    }
-
-    @FXML
-    void profileOnAction() {
-        try {
-            manager.stage.setScene(manager.changeScene(manager.USERPAGESCENEPATH));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    private void initialize()
-    {
-        this.iconImage.setImage(new Image(this.getClass().getResource(user.getImageurl()).toString()));
-
-    }
-
+  }
 }

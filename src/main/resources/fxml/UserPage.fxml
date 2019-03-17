@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane stylesheets="@../stylesheets/MainSceneStylesheet0.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.UserPageController">
+<BorderPane stylesheets="@../stylesheets/Stylesheet1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.UserPageController">
    <center>
-      <AnchorPane prefHeight="500.0" prefWidth="600.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css">
+      <AnchorPane prefHeight="500.0" prefWidth="600.0">
          <children>
-            <VBox prefHeight="318.0" prefWidth="99.0" spacing="20.0" AnchorPane.topAnchor="10.0">
+            <VBox layoutX="309.0" layoutY="14.0" prefHeight="318.0" prefWidth="99.0" spacing="20.0" AnchorPane.topAnchor="14.0">
                <children>
                   <HBox>
                      <children>
@@ -52,7 +52,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox layoutX="99.0" prefHeight="318.0" prefWidth="224.0" spacing="20.0" AnchorPane.topAnchor="10.0">
+            <VBox layoutX="408.0" layoutY="14.0" prefHeight="318.0" prefWidth="170.0" spacing="20.0" AnchorPane.topAnchor="14.0">
                <children>
                   <HBox>
                      <children>
@@ -91,11 +91,11 @@
                   </HBox>
                </children>
             </VBox>
-            <Button layoutX="-3.0" layoutY="336.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="186.0" text="change data" />
-            <ImageView fx:id="avatarImage" fitHeight="150.0" fitWidth="200.0" layoutX="342.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="353.0" layoutY="273.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="178.0" text="Change avatar" />
-            <JFXButton layoutX="151.0" layoutY="433.0" onAction="#backOnAction" text="Back" />
-            <JFXButton layoutX="317.0" layoutY="433.0" onAction="#menuOnAction" text="Menu" />
+            <Button layoutX="306.0" layoutY="340.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="186.0" text="change data" />
+            <ImageView fx:id="avatarImage" fitHeight="150.0" fitWidth="200.0" layoutX="22.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="33.0" layoutY="243.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="178.0" text="Change avatar" />
+            <JFXButton layoutX="151.0" layoutY="433.0" onAction="#backOnAction" prefHeight="40.0" prefWidth="100.0" text="Back" />
+            <JFXButton layoutX="317.0" layoutY="433.0" onAction="#menuOnAction" prefHeight="40.0" prefWidth="100.0" text="Menu" />
          </children>
       </AnchorPane>
    </center>

@@ -6,32 +6,32 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.CategoryController">
+<BorderPane stylesheets="@../stylesheets/Stylesheet1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.CategoryController">
    <center>
-      <VBox prefHeight="500.0" prefWidth="400.0" spacing="30.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css">
+      <VBox prefHeight="500.0" prefWidth="400.0" spacing="30.0">
          <children>
             <Label alignment="TOP_CENTER" prefHeight="18.0" prefWidth="358.0" text="Ideas for..." />
-            <Button mnemonicParsing="false" onAction="#breakfastOnAction" prefHeight="32.0" prefWidth="202.0" text="Beef">
+            <Button mnemonicParsing="false" onAction="#breakfastOnAction" prefHeight="50.0" prefWidth="220.0" text="Beef">
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#dinnerOnAction" prefHeight="39.0" prefWidth="206.0" text="Carbos">
+            <Button mnemonicParsing="false" onAction="#dinnerOnAction" prefHeight="50.0" prefWidth="220.0" text="Carbos">
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#supperOnAction" prefHeight="39.0" prefWidth="206.0" text="fats">
+            <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#supperOnAction" prefHeight="50.0" prefWidth="220.0" text="fats">
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#snacksOnAction" prefHeight="39.0" prefWidth="210.0" text="Snacks">
+            <Button mnemonicParsing="false" onAction="#snacksOnAction" prefHeight="50.0" prefWidth="220.0" text="Snacks">
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#returnOnAction" prefHeight="33.0" prefWidth="218.0" text="Return">
+            <Button mnemonicParsing="false" onAction="#returnOnAction" prefHeight="50.0" prefWidth="220.0" text="Return">
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin>

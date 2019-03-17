@@ -1,5 +1,3 @@
 package pl.mvwojcik.controllers;
 
-public class IngredientController {
-
-}
+public class IngredientController {}

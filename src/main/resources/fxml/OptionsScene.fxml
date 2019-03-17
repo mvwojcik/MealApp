@@ -8,23 +8,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="borderpane" stylesheets="@../stylesheets/MainSceneStylesheet0.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.OptionsController">
+<BorderPane fx:id="borderpane" stylesheets="@../stylesheets/Stylesheet1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.OptionsController">
    <center>
-      <AnchorPane prefHeight="500.0" prefWidth="600.0" stylesheets="@../stylesheets/MainSceneStylesheet0.css">
+      <AnchorPane prefHeight="500.0" prefWidth="600.0">
          <children>
-            <Button layoutX="140.0" layoutY="431.0" mnemonicParsing="false" onAction="#doMenu" text="Powrót do menu" />
-            <Label layoutX="366.0" layoutY="183.0" text="Jezyk" />
-            <ChoiceBox fx:id="languageChoiceBox" layoutX="449.0" layoutY="177.0" prefWidth="150.0" />
-            <Label layoutX="45.0" layoutY="248.0" text="Waluta" />
-            <ChoiceBox fx:id="currencyChoiceBox" layoutX="108.0" layoutY="244.0" prefWidth="150.0" />
-            <Label layoutX="51.0" layoutY="316.0" text="Motyw" />
-            <RadioButton layoutX="119.0" layoutY="316.0" mnemonicParsing="false" text="Jasny">
+            <Button layoutX="100.0" layoutY="431.0" mnemonicParsing="false" onAction="#doMenu" prefHeight="40.0" prefWidth="150.0" text="Powrót do menu" />
+            <Label layoutX="212.0" layoutY="165.0" text="Jezyk" />
+            <ChoiceBox fx:id="languageChoiceBox" layoutX="308.0" layoutY="159.0" prefWidth="150.0" />
+            <Label layoutX="206.0" layoutY="238.0" text="Waluta" />
+            <ChoiceBox fx:id="currencyChoiceBox" layoutX="308.0" layoutY="232.0" prefWidth="150.0" />
+            <Label layoutX="157.0" layoutY="316.0" text="Motyw" />
+            <RadioButton layoutX="250.0" layoutY="318.0" mnemonicParsing="false" text="Jasny">
                <toggleGroup>
                   <ToggleGroup fx:id="themeGroup" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton layoutX="231.0" layoutY="316.0" mnemonicParsing="false" selected="true" text="Ciemny" toggleGroup="$themeGroup" />
-            <Button layoutX="378.0" layoutY="438.0" mnemonicParsing="false" onAction="#confirmOnAction" text="Potwierdź" />
+            <RadioButton layoutX="367.0" layoutY="316.0" mnemonicParsing="false" selected="true" text="Ciemny" toggleGroup="$themeGroup" />
+            <Button layoutX="313.0" layoutY="431.0" mnemonicParsing="false" onAction="#confirmOnAction" prefHeight="40.0" prefWidth="150.0" text="Potwierdź" />
          </children>
       </AnchorPane>
    </center>
