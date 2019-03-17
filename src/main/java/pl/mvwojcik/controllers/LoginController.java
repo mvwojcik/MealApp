@@ -46,7 +46,7 @@ public class LoginController {
       // zaladuj usera
       user = user1;
       try {
-        manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+        manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH,true));
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -62,7 +62,7 @@ public class LoginController {
   @FXML
   void returnOnAction() {
     try {
-      manager.stage.setScene(manager.changeScene(manager.WELCOMEPAGESCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.WELCOMEPAGESCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }

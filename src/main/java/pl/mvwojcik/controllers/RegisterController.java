@@ -101,7 +101,7 @@ public class RegisterController {
         userDao.create(user);
         ActiveUser.user = user;
         try {
-          manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+          manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH,true));
         } catch (IOException e) {
           e.printStackTrace();
         }
@@ -138,7 +138,7 @@ public class RegisterController {
   @FXML
   void returnOnAction() {
     try {
-      manager.stage.setScene(manager.changeScene(manager.WELCOMEPAGESCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.WELCOMEPAGESCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }

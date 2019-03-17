@@ -40,10 +40,10 @@
                   <TableColumn fx:id="fatColumn" prefWidth="116.0" text="Fat" />
                </columns>
             </TableView>
-            <HBox alignment="CENTER" prefHeight="15.0" prefWidth="700.0" spacing="50.0">
+            <HBox alignment="CENTER" prefHeight="15.0" prefWidth="700.0">
                <children>
-                  <JFXButton buttonType="RAISED" onAction="#backOnAction" prefWidth="90.0" text="Back" />
-                  <JFXButton onAction="#menuOnAction" prefWidth="90.0" text="Menu" />
+                  <JFXButton buttonType="RAISED" onAction="#backOnAction" prefWidth="800.0" text="Back" />
+                  <JFXButton onAction="#menuOnAction" prefWidth="800.0" text="Menu" />
                </children>
             </HBox>
          </children>

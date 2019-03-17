@@ -40,7 +40,7 @@ public class OptionsController {
   @FXML
   void doMenu() {
     try {
-      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }

@@ -12,7 +12,7 @@ public class CategoryController {
   @FXML
   void breakfastOnAction(ActionEvent event) {
     try {
-      manager.stage.setScene(manager.changeScene(manager.PROTEINSPAGESCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.PROTEINSPAGESCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -30,7 +30,7 @@ public class CategoryController {
   @FXML
   void returnOnAction(ActionEvent event) {
     try {
-      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }

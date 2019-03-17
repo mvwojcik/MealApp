@@ -17,7 +17,7 @@ public class WelcomePageController {
   void loginOnAction() {
 
     try {
-      manager.stage.setScene(manager.changeScene(manager.LOGINSCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.LOGINSCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -27,7 +27,7 @@ public class WelcomePageController {
   void registerOnAction() {
 
     try {
-      manager.stage.setScene(manager.changeScene(manager.REGISTERSCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.REGISTERSCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -36,7 +36,7 @@ public class WelcomePageController {
   @FXML
   void trialOnAction() {
     try {
-      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH,true));
       User trialUser = new User();
       trialUser.setUsername("trialUser");
       trialUser.setPoints(0);

@@ -53,7 +53,7 @@ public class UserPageController {
     manager.lastpages.pop();
     if (!manager.lastpages.empty()) {
       try {
-        manager.stage.setScene(manager.changeScene(manager.lastpages.pop()));
+        manager.stage.setScene(manager.changeScene(manager.lastpages.pop(),true));
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -63,7 +63,7 @@ public class UserPageController {
   @FXML
   private void menuOnAction() {
     try {
-      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }

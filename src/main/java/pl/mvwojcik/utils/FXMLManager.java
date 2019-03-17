@@ -35,18 +35,19 @@ public class FXMLManager implements Initializable {
     this.stage = stage;
   }
 
-  public static void setStage(Stage stage, String path) throws IOException {
-    stage.setScene(changeScene(path));
+  public static void setStage(Stage stage, String path,boolean stack) throws IOException {
+    stage.setScene(changeScene(path,stack));
     stage.setTitle("Szamka");
     stage.show();
   }
 
-  public static Scene changeScene(String path) throws IOException {
+  public static Scene changeScene(String path,boolean stack) throws IOException {
+    if (stack){
     if (path.equals(MAINSCENEPATH)) {
       lastpages = new Stack<>();
     } else if (!path.equals(WELCOMEPAGESCENEPATH)) {
       lastpages.push(path);
-    }
+    }}
     Parent parent = fxmlLoader(path).load();
     return new Scene(parent);
   }
@@ -58,10 +59,10 @@ public class FXMLManager implements Initializable {
     return loader;
   }
 
-  public static Stage openIngredientPage(IngredientFX ingredientFX) {
+  public static Stage openIngredientPage() {
     Stage stage = new Stage();
     try {
-      setStage(stage, "/fxml/IngredientContent.fxml");
+      setStage(stage, "/fxml/IngredientContent.fxml",false);
     } catch (IOException e) {
       e.printStackTrace();
     }

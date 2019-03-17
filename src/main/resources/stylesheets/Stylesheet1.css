@@ -19,7 +19,7 @@
 }
 .root
 {
-   -fx-background-color: linear-gradient(to right, rgba(123, 84, 105, 0.53), rgba(23, 15, 77, 0.72));
+   -fx-background-color: linear-gradient(to left, rgba(123, 84, 105, 0.53), rgba(23, 15, 77, 0.72));
 }
 .button
 
@@ -27,6 +27,7 @@
     -fx-background-color: -fx-fourth;
     -fx-text-fill: -fx-fourth-text;
     -fx-font-size: 12pt;
+    -fx-opacity: 0.4;
 }
 
 .button:hover
@@ -98,4 +99,27 @@ Table View styling
 .table-view > .virtual-flow > .scroll-bar > .increment-button,
 .table-view > .virtual-flow > .scroll-bar > .decrement-button {
     -fx-opacity: 0;
-}*
+}
+/**
+choice box
+ */
+ .choice-box .context-menu { -fx-background-color: transparent; }
+.choice-box .menu-item:focused { -fx-background-color: -fx-primary;
+-fx-opacity: 0.5;}
+.choice-box .menu-item > .label { -fx-text-fill: -fx-primarytext; }
+.choice-box .menu-item:focused > .label { -fx-text-fill: -fx-primarytext; }
+   .choice-box {
+       -fx-background-color: transparent;
+       -fx-border-color: -fx-fourth;
+       -fx-mark-color: -fx-fourth;
+       -fx-opacity: 0.4;
+   }
+.choice-box:hover
+{
+       -fx-background-color: -fx-fourth;
+       -fx-border-color: -fx-fourth;
+       -fx-mark-color: -fx-fourth;
+        -fx-opacity: 0.1;
+}
+
+   .choice-box > .label { -fx-text-fill: -fx-fourth; }

@@ -1,31 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderpane" stylesheets="@../stylesheets/Stylesheet1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.OptionsController">
-   <center>
-      <AnchorPane prefHeight="500.0" prefWidth="600.0">
+<BorderPane fx:id="borderpane" prefHeight="500.0" prefWidth="700.0" stylesheets="@../stylesheets/Stylesheet1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.OptionsController">
+   <bottom>
+      <HBox prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="100.0" layoutY="431.0" mnemonicParsing="false" onAction="#doMenu" prefHeight="40.0" prefWidth="150.0" text="Powrót do menu" />
-            <Label layoutX="212.0" layoutY="165.0" text="Jezyk" />
-            <ChoiceBox fx:id="languageChoiceBox" layoutX="308.0" layoutY="159.0" prefWidth="150.0" />
-            <Label layoutX="206.0" layoutY="238.0" text="Waluta" />
-            <ChoiceBox fx:id="currencyChoiceBox" layoutX="308.0" layoutY="232.0" prefWidth="150.0" />
-            <Label layoutX="157.0" layoutY="316.0" text="Motyw" />
-            <RadioButton layoutX="250.0" layoutY="318.0" mnemonicParsing="false" text="Jasny">
-               <toggleGroup>
-                  <ToggleGroup fx:id="themeGroup" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton layoutX="367.0" layoutY="316.0" mnemonicParsing="false" selected="true" text="Ciemny" toggleGroup="$themeGroup" />
-            <Button layoutX="313.0" layoutY="431.0" mnemonicParsing="false" onAction="#confirmOnAction" prefHeight="40.0" prefWidth="150.0" text="Potwierdź" />
+            <Button mnemonicParsing="false" onAction="#doMenu" prefHeight="200.0" prefWidth="800.0" text="Powrót do menu" />
+            <Button mnemonicParsing="false" onAction="#confirmOnAction" prefHeight="40.0" prefWidth="800.0" text="Potwierdź" />
          </children>
-      </AnchorPane>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox prefHeight="381.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="0.0" prefWidth="0.0" spacing="61.0">
+               <children>
+                  <Label text="Jezyk">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="languageChoiceBox" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets right="240.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+            </HBox>
+            <HBox spacing="50.0">
+               <children>
+                  <Label text="Waluta">
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </Label>
+                  <ChoiceBox fx:id="currencyChoiceBox" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets right="240.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+            </HBox>
+            <HBox spacing="50.0">
+               <children>
+                  <Label text="Motyw">
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </Label>
+                  <RadioButton mnemonicParsing="false" selected="true" text="Ciemny">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="themeGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Jasny" toggleGroup="$themeGroup">
+                     <HBox.margin>
+                        <Insets right="240.0" />
+                     </HBox.margin>
+                  </RadioButton>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="100.0" top="100.0" />
+         </BorderPane.margin>
+      </VBox>
    </center>
 </BorderPane>

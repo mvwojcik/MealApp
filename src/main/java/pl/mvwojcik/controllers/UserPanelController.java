@@ -25,7 +25,7 @@ public class UserPanelController {
   @FXML
   void profileOnAction() {
     try {
-      manager.stage.setScene(manager.changeScene(manager.USERPAGESCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.USERPAGESCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }

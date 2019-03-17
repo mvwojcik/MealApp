@@ -10,7 +10,6 @@ public class Main extends Application {
   public void start(Stage primaryStage) throws Exception {
     FXMLManager loader = new FXMLManager(primaryStage);
     manager = loader;
-    // manager.setStage(primaryStage,"/fxml/MainScene.fxml");
-    manager.setStage(primaryStage, "/fxml/WelcomePage.fxml");
+    manager.setStage(primaryStage, "/fxml/WelcomePage.fxml",true);
   }
 }

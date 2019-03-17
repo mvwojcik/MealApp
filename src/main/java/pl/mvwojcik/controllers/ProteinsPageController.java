@@ -1,30 +1,27 @@
 package pl.mvwojcik.controllers;
 
-import com.jfoenix.controls.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXSlider;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.input.DragEvent;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import pl.mvwojcik.user.model.Ingredient;
+import pl.mvwojcik.Converters.IngredientsConverter;
 import pl.mvwojcik.user.modelfx.IngredientFX;
 import pl.mvwojcik.user.modelfx.ListIngredientsModel;
-import pl.mvwojcik.utils.DialogUtils;
 import pl.mvwojcik.utils.FXMLManager;
 import pl.mvwojcik.utils.FillDB;
 import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.io.IOException;
 
-import static pl.mvwojcik.user.user.ActiveUser.user;
 import static pl.mvwojcik.utils.FXMLManager.manager;
+import static pl.mvwojcik.utils.ActiveIngredient.setActiveIngredient;
 
 public class ProteinsPageController {
 
@@ -43,26 +40,19 @@ public class ProteinsPageController {
 
   @FXML private TableColumn<IngredientFX, Number> fatColumn;
 
-    @FXML
-    private JFXToggleButton meatToggle;
+  @FXML private JFXToggleButton meatToggle;
 
-    @FXML
-    private JFXToggleButton veggiesToggle;
+  @FXML private JFXToggleButton veggiesToggle;
 
-    @FXML
-    private JFXToggleButton supplementsToggle;
+  @FXML private JFXToggleButton supplementsToggle;
 
-    @FXML
-    private JFXToggleButton glutenToggle;
+  @FXML private JFXToggleButton glutenToggle;
 
-    @FXML
-    private JFXToggleButton milkToggle;
+  @FXML private JFXToggleButton milkToggle;
 
-  @FXML
-  private JFXSlider minKcal;
+  @FXML private JFXSlider minKcal;
 
-  @FXML
-  private JFXSlider maxKcal;
+  @FXML private JFXSlider maxKcal;
 
   private ListIngredientsModel ingredientsList;
 
@@ -85,8 +75,8 @@ public class ProteinsPageController {
               JFXButton button = UserToolbarUtils.createButton("/images/man1.jpg");
 
               @Override
-              protected void updateItem(IngredientFX ingredientFX, boolean empty) {
-                super.updateItem(ingredientFX, empty);
+              protected void updateItem(IngredientFX item, boolean empty) {
+                super.updateItem(item, empty);
                 if (empty) {
                   setGraphic(null);
                   return;
@@ -95,7 +85,11 @@ public class ProteinsPageController {
                   setAlignment(Pos.CENTER);
                   button.setOnAction(
                       event -> {
-                        Stage stage = FXMLManager.openIngredientPage(ingredientFX);
+
+                        setActiveIngredient(
+                            IngredientsConverter.toIngredient(
+                                tableView.getItems().get(this.getIndex())));
+                        Stage stage = FXMLManager.openIngredientPage();
                         stage.requestFocus();
                       });
                 }
@@ -115,26 +109,32 @@ public class ProteinsPageController {
 
   @FXML
   void dragKcal() {
-     // this.ingredientsList.initByKal((int) this.minKcal.getValue(), (int) this.maxKcal.getValue());
-check();
-    }
-public void check()
-{
+    // this.ingredientsList.initByKal((int) this.minKcal.getValue(), (int) this.maxKcal.getValue());
+    check();
+  }
+
+  public void check() {
     System.out.println("!this.meatToggle.isDisabled() = " + !this.meatToggle.isSelected());
-    this.ingredientsList.initList((int)this.minKcal.getValue()
-            ,(int)this.maxKcal.getValue(),this.meatToggle.isSelected(),
-            this.veggiesToggle.isSelected(),this.supplementsToggle.isSelected(),
-            this.glutenToggle.isSelected(),this.milkToggle.isSelected());
-}
-    @FXML
-    void toggle(ActionEvent event) {
-check();
-    }
+    this.ingredientsList.initList(
+        (int) this.minKcal.getValue(),
+        (int) this.maxKcal.getValue(),
+        this.meatToggle.isSelected(),
+        this.veggiesToggle.isSelected(),
+        this.supplementsToggle.isSelected(),
+        this.glutenToggle.isSelected(),
+        this.milkToggle.isSelected());
+  }
+
+  @FXML
+  void toggle(ActionEvent event) {
+    check();
+  }
+
   @FXML
   public void backOnAction(ActionEvent actionEvent) {
     try {
       manager.lastpages.pop();
-      manager.stage.setScene(manager.changeScene(manager.lastpages.pop()));
+      manager.stage.setScene(manager.changeScene(manager.lastpages.pop(),true));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -143,7 +143,7 @@ check();
   @FXML
   public void menuOnAction(ActionEvent actionEvent) {
     try {
-      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }

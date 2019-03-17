@@ -48,7 +48,7 @@ public class ExplorePageController {
   @FXML
   void backOnAction(ActionEvent event) {
     try {
-      manager.stage.setScene(manager.changeScene(manager.EXPLORESCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.EXPLORESCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -57,7 +57,7 @@ public class ExplorePageController {
   @FXML
   void returnOnAction(ActionEvent event) {
     try {
-      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }

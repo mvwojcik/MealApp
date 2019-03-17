@@ -26,7 +26,7 @@ public class MainController {
   @FXML
   void exploreOnAction() {
     try {
-      manager.stage.setScene(manager.changeScene(manager.EXPLORESCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.EXPLORESCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -36,7 +36,7 @@ public class MainController {
   public void optionsOnClick(ActionEvent event) {
 
     try {
-      manager.stage.setScene(manager.changeScene(manager.OPTIONSSCENEPATH));
+      manager.stage.setScene(manager.changeScene(manager.OPTIONSSCENEPATH,true));
     } catch (IOException e) {
       e.printStackTrace();
     }

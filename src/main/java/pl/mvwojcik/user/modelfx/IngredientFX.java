@@ -1,9 +1,6 @@
 package pl.mvwojcik.user.modelfx;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.*;
 import pl.mvwojcik.user.model.Alergens;
 
 public class IngredientFX {
@@ -13,7 +10,7 @@ public class IngredientFX {
   private SimpleDoubleProperty proteins = new SimpleDoubleProperty();
   private SimpleDoubleProperty carbohydrates = new SimpleDoubleProperty();
   private SimpleDoubleProperty fat = new SimpleDoubleProperty();
-  private SimpleObjectProperty<Alergens> alergens = new SimpleObjectProperty();
+  private ObjectProperty<Alergens> alergens = new SimpleObjectProperty();
 
   public int getKcal() {
     return kcal.get();
@@ -79,11 +76,23 @@ public class IngredientFX {
     return alergens.get();
   }
 
-  public SimpleObjectProperty<Alergens> alergensProperty() {
+  public ObjectProperty<Alergens> alergensProperty() {
     return alergens;
   }
 
   public void setAlergens(Alergens alergens) {
     this.alergens.set(alergens);
+  }
+
+  @Override
+  public String toString() {
+    return "IngredientFX{" +
+            "name=" + name +
+            ", kcal=" + kcal +
+            ", proteins=" + proteins +
+            ", carbohydrates=" + carbohydrates +
+            ", fat=" + fat +
+            ", alergens=" + alergens +
+            '}';
   }
 }
