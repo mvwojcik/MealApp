@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import org.apache.commons.codec.digest.DigestUtils;
 import pl.mvwojcik.database.dao.UserDao;
 import pl.mvwojcik.database.dbutils.DBManager;
 import pl.mvwojcik.user.model.User;
@@ -38,8 +39,10 @@ public class LoginController {
   void confirmOnAction() {
     DBManager.createConnectionSource();
     UserDao userDao = new UserDao();
+      DigestUtils.shaHex(this.userPasswordLoginTextField.getText());
 
-    User user1 = userDao.checkUsernameWithPassword(userFX.getUsername(), userFX.getPassword());
+    User user1 = userDao.checkUsernameWithPassword(userFX.getUsername(),
+            DigestUtils.shaHex(this.userPasswordLoginTextField.getText()));
     DBManager.closeConnectionSource();
 
     if (user1 != null) {

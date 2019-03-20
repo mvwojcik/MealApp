@@ -11,6 +11,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.util.converter.NumberStringConverter;
+import org.apache.commons.codec.digest.DigestUtils;
 import pl.mvwojcik.database.dao.UserDao;
 import pl.mvwojcik.Converters.UserConverter;
 import pl.mvwojcik.user.model.User;
@@ -94,6 +95,7 @@ public class RegisterController {
 
       DBManager.createTable();
 
+      userFX.setPassword(DigestUtils.shaHex(this.passwordTextField.getText()));
       User user = UserConverter.userFXtoUser(userFX);
 
       UserDao userDao = new UserDao();

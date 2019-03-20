@@ -1,9 +1,11 @@
 package pl.mvwojcik.utils;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import pl.mvwojcik.user.modelfx.IngredientFX;
 
@@ -24,6 +26,9 @@ public class FXMLManager implements Initializable {
   public static final String WELCOMEPAGESCENEPATH = "/fxml/WelcomePage.fxml";
   public static final String PROTEINSPAGESCENEPATH = "/fxml/proteinsPage.fxml";
 
+
+  public static double x =0;
+  public static double y =0;
   public Stage stage;
 
   public static Stack<String> lastpages;
@@ -49,7 +54,26 @@ public class FXMLManager implements Initializable {
       lastpages.push(path);
     }}
     Parent parent = fxmlLoader(path).load();
+    movingStage(parent);
+
     return new Scene(parent);
+  }
+
+  private static void movingStage(Parent parent) {
+    parent.setOnMousePressed(new EventHandler<MouseEvent>() {
+      @Override
+      public void handle(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
+      }
+    });
+    parent.setOnMouseDragged(new EventHandler<MouseEvent>() {
+          @Override
+          public void handle(MouseEvent event) {
+            manager.stage.setX(event.getScreenX() - x);
+            manager.stage.setY(event.getScreenY() - y);
+          }
+        });
   }
 
   public static FXMLLoader fxmlLoader(String path) throws IOException {
@@ -61,6 +85,7 @@ public class FXMLManager implements Initializable {
 
   public static Stage openIngredientPage() {
     Stage stage = new Stage();
+    stage.setOpacity(0.95);
     try {
       setStage(stage, "/fxml/IngredientContent.fxml",false);
     } catch (IOException e) {
