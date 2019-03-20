@@ -24,7 +24,6 @@ public class ExplorePageController {
   @FXML
   public void initialize() {
 
-    UserToolbarUtils.initDrawer(this.drawer, this.hamburger);
 
     try {
       gridPane.add(

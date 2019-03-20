@@ -7,9 +7,13 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RegexValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import de.jensd.fx.glyphs.materialicons.MaterialIcon;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.util.converter.NumberStringConverter;
 import org.apache.commons.codec.digest.DigestUtils;
 import pl.mvwojcik.database.dao.UserDao;
@@ -19,6 +23,7 @@ import pl.mvwojcik.user.modelfx.UserFX;
 import pl.mvwojcik.database.dbutils.DBManager;
 import pl.mvwojcik.user.user.ActiveUser;
 import pl.mvwojcik.utils.DialogUtils;
+import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,21 +33,24 @@ import static pl.mvwojcik.utils.FXMLManager.manager;
 
 public class RegisterController {
 
+  UserFX userFX;
   @FXML private JFXTextField usernameTextField;
-
   @FXML private JFXPasswordField passwordTextField;
-
   @FXML private JFXPasswordField repeatPasswordTextField;
-
   @FXML private JFXTextField emailTextField;
-
   @FXML private JFXDatePicker ageDatePicker;
-
   @FXML private JFXTextField heightTextField;
-
   @FXML private JFXTextField weightTextField;
-
   @FXML private JFXComboBox<?> genderComboBox;
+
+  @FXML
+  private Button minimalizeIcon;
+
+  @FXML
+  private Button fullIViewIcon;
+
+  @FXML
+  private Button exitIcon;
 
   private boolean passwordok = false;
   private boolean usernameok = false;
@@ -51,11 +59,11 @@ public class RegisterController {
   private boolean heightok = false;
   private boolean genderok = false;
   private boolean borndateok = false;
-  UserFX userFX;
 
   @FXML
   public void initialize() {
     initValidators();
+    UserToolbarUtils.loadTopToolbars(minimalizeIcon,fullIViewIcon,exitIcon);
 
     userFX = new UserFX();
     bindings();
@@ -74,6 +82,7 @@ public class RegisterController {
     initHeightValidator();
     initWeightValidator();
     initEmailValidator();
+    initRepeatPasswordValidator();
     initPasswordValidator();
   }
 
@@ -103,7 +112,7 @@ public class RegisterController {
         userDao.create(user);
         ActiveUser.user = user;
         try {
-          manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH,true));
+          manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH, true));
         } catch (IOException e) {
           e.printStackTrace();
         }
@@ -134,13 +143,13 @@ public class RegisterController {
     return this.emailTextField.validate()
         && this.heightTextField.validate()
         && this.weightTextField.validate()
-        && passwordok;
+        && this.repeatPasswordTextField.validate();
   }
 
   @FXML
   void returnOnAction() {
     try {
-      manager.stage.setScene(manager.changeScene(manager.WELCOMEPAGESCENEPATH,true));
+      manager.stage.setScene(manager.changeScene(manager.WELCOMEPAGESCENEPATH, true));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -155,16 +164,10 @@ public class RegisterController {
     heightTextField
         .focusedProperty()
         .addListener(
-            new ChangeListener<Boolean>() {
-              @Override
-              public void changed(
-                  ObservableValue<? extends Boolean> observable,
-                  Boolean oldValue,
-                  Boolean newValue) {
-                if (!newValue) {
-                  if (heightTextField.validate()) {
-                    Integer.valueOf(heightTextField.getText());
-                  }
+            (observable, oldValue, newValue) -> {
+              if (!newValue) {
+                if (heightTextField.validate()) {
+                  Integer.valueOf(heightTextField.getText());
                 }
               }
             });
@@ -179,16 +182,10 @@ public class RegisterController {
     weightTextField
         .focusedProperty()
         .addListener(
-            new ChangeListener<Boolean>() {
-              @Override
-              public void changed(
-                  ObservableValue<? extends Boolean> observable,
-                  Boolean oldValue,
-                  Boolean newValue) {
-                if (!newValue) {
-                  if (weightTextField.validate()) {
-                    System.out.println("jazda"); // Integer.valueOf(heightTextField.getText());
-                  }
+            (observable, oldValue, newValue) -> {
+              if (!newValue) {
+                if (weightTextField.validate()) {
+                  System.out.println("jazda"); // Integer.valueOf(heightTextField.getText());
                 }
               }
             });
@@ -204,38 +201,40 @@ public class RegisterController {
     this.emailTextField
         .focusedProperty()
         .addListener(
-            new ChangeListener<Boolean>() {
-              @Override
-              public void changed(
-                  ObservableValue<? extends Boolean> observable,
-                  Boolean oldValue,
-                  Boolean newValue) {
-                if (!newValue) {
-                  emailTextField.validate();
-                }
+            (observable, oldValue, newValue) -> {
+              if (!newValue) {
+                emailTextField.validate();
               }
             });
   }
   // to trzeba sie dostac jakos do tego tekstu pod jfxtextfield
-  private void initPasswordValidator() {
-    RequiredFieldValidator validator = new RequiredFieldValidator();
+  private void initRepeatPasswordValidator() {
+    RegexValidator validator = new RegexValidator();
+
     validator.setMessage("Passwords aren't the same");
     this.repeatPasswordTextField.getValidators().add(validator);
     this.repeatPasswordTextField
         .focusedProperty()
         .addListener(
-            new ChangeListener<Boolean>() {
-              @Override
-              public void changed(
-                  ObservableValue<? extends Boolean> observable,
-                  Boolean oldValue,
-                  Boolean newValue) {
+            (observable, oldValue, newValue) -> {
+              validator.setRegexPattern(passwordTextField.getText());
 
-                if (repeatPasswordTextField.getText().equals(passwordTextField.getText())
-                    && repeatPasswordTextField.getText().length() != 0) {
-                  passwordok = true;
-                } else {
-                  passwordok = false;
+              if (!newValue) {
+                repeatPasswordTextField.validate();
+              }
+            });
+  }
+
+  public void initPasswordValidator() {
+    this.passwordTextField
+        .focusedProperty()
+        .addListener(
+            (observable, oldValue, newValue) -> {
+              if (!newValue) {
+                if (repeatPasswordTextField.getText().length() != 0) {
+                  ((RegexValidator) repeatPasswordTextField.getValidators().get(0))
+                      .setRegexPattern(passwordTextField.getText());
+                  repeatPasswordTextField.validate();
                 }
               }
             });

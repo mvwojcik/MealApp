@@ -1,7 +1,9 @@
 package pl.mvwojcik.controllers;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import pl.mvwojcik.utils.FXMLManager;
 import pl.mvwojcik.utils.UserToolbarUtils;
@@ -14,11 +16,21 @@ import static pl.mvwojcik.user.user.ActiveUser.user;
 public class MainController {
   @FXML private BorderPane borderpane;
 
+  @FXML
+  private Button minimalizeIcon;
+
+  @FXML
+  private Button fullIViewIcon;
+
+  @FXML
+  private Button exitIcon;
+
   public FXMLManager fxmlManager;
 
   @FXML
   public void initialize() {
 
+    UserToolbarUtils.loadTopToolbars(minimalizeIcon,fullIViewIcon,exitIcon);
     this.fxmlManager = manager;
     UserToolbarUtils.loadToolbars(borderpane);
   }
@@ -26,7 +38,7 @@ public class MainController {
   @FXML
   void exploreOnAction() {
     try {
-      manager.stage.setScene(manager.changeScene(manager.EXPLORESCENEPATH,true));
+      manager.stage.setScene(manager.changeScene(manager.EXPLORESCENEPATH, true));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -36,7 +48,7 @@ public class MainController {
   public void optionsOnClick(ActionEvent event) {
 
     try {
-      manager.stage.setScene(manager.changeScene(manager.OPTIONSSCENEPATH,true));
+      manager.stage.setScene(manager.changeScene(manager.OPTIONSSCENEPATH, true));
     } catch (IOException e) {
       e.printStackTrace();
     }

@@ -3,9 +3,11 @@ package pl.mvwojcik.controllers;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXToggleButton;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -54,10 +56,21 @@ public class ProteinsPageController {
 
   @FXML private JFXSlider maxKcal;
 
+  @FXML
+  private Button minimalizeIcon;
+
+  @FXML
+  private Button fullIViewIcon;
+
+  @FXML
+  private Button exitIcon;
+
+
   private ListIngredientsModel ingredientsList;
 
   @FXML
   private void initialize() {
+    UserToolbarUtils.loadTopToolbars(minimalizeIcon,fullIViewIcon,exitIcon);
     FillDB.fillIngredientsDB();
     this.ingredientsList = new ListIngredientsModel();
     this.ingredientsList.init(); // tu try

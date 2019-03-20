@@ -3,6 +3,7 @@ package pl.mvwojcik.controllers;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
@@ -21,11 +22,19 @@ import static pl.mvwojcik.user.user.ActiveUser.user;
 public class OptionsController {
 
   @FXML BorderPane borderpane;
+  @FXML
+  private Button minimalizeIcon;
 
+  @FXML
+  private Button fullIViewIcon;
+
+  @FXML
+  private Button exitIcon;
   ResourceBundle bundle;
 
   @FXML
   public void initialize() {
+    UserToolbarUtils.loadTopToolbars(minimalizeIcon,fullIViewIcon,exitIcon);
 
     UserToolbarUtils.loadToolbars(borderpane);
     try {

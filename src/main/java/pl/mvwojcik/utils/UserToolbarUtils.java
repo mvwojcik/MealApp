@@ -1,59 +1,34 @@
 package pl.mvwojcik.utils;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDrawer;
-import com.jfoenix.controls.JFXHamburger;
-import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
-import javafx.event.Event;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import pl.mvwojcik.user.modelfx.UserFX;
+import javafx.stage.Stage;
 
+import javax.swing.text.IconView;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
+import static pl.mvwojcik.utils.FXMLManager.manager;
 public class UserToolbarUtils {
 
-  public static void initDrawer(JFXDrawer drawer, JFXHamburger hamburger) {
-
-    try {
-      VBox toolbar = FXMLLoader.load(UserFX.class.getClass().getResource("/fxml/UserPanel.fxml"));
-      drawer.setSidePane(toolbar);
-      // drawer.setDefaultDrawerSize(100);
-      // toolbar.autosize();
-    } catch (IOException e) {
-      e.printStackTrace();
+    public static void loadTopToolbars(Button minimalizeIcon, Button fullViewIcon, Button exitIcon)
+    {
+        minimalizeIcon.setOnMouseReleased(event -> manager.stage.setIconified(true));
+        fullViewIcon.setOnMouseReleased(event -> manager.stage.setMaximized(true));
+        exitIcon.setOnMouseReleased(event -> ((Stage)((Button)event.getSource()).getScene().getWindow()).close());
     }
-    HamburgerSlideCloseTransition task = new HamburgerSlideCloseTransition(hamburger);
-    task.setRate(-1);
-    hamburger.addEventHandler(
-        MouseEvent.MOUSE_CLICKED,
-        (Event event) -> {
-          drawer.toggle();
-        });
-    drawer.setOnDrawerOpening(
-        (event) -> {
-          task.setRate(task.getRate() * -1);
-          task.play();
-          drawer.toFront();
-        });
-    drawer.setOnDrawerClosed(
-        (event) -> {
-          drawer.toBack();
-          task.setRate(task.getRate() * -1);
-          task.play();
-        });
-  }
 
-  public static void loadToolbars(BorderPane pane) {
+    public static void loadToolbars(BorderPane pane) {
     try {
       VBox vBox =
           FXMLLoader.load(UserToolbarUtils.class.getClass().getResource("/fxml/UserPanel.fxml"));

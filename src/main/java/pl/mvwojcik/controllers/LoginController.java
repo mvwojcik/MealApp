@@ -2,9 +2,11 @@ package pl.mvwojcik.controllers;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.apache.commons.codec.digest.DigestUtils;
 import pl.mvwojcik.database.dao.UserDao;
@@ -22,7 +24,17 @@ public class LoginController {
   @FXML private JFXTextField userLoginTextField;
 
   @FXML private Label errmsglabel;
+
   @FXML private JFXPasswordField userPasswordLoginTextField;
+
+  @FXML
+  private Button minimalizeIcon;
+
+  @FXML
+  private Button fullIViewIcon;
+
+  @FXML
+  private Button exitIcon;
 
   UserFX userFX;
 
@@ -39,17 +51,18 @@ public class LoginController {
   void confirmOnAction() {
     DBManager.createConnectionSource();
     UserDao userDao = new UserDao();
-      DigestUtils.shaHex(this.userPasswordLoginTextField.getText());
+    DigestUtils.shaHex(this.userPasswordLoginTextField.getText());
 
-    User user1 = userDao.checkUsernameWithPassword(userFX.getUsername(),
-            DigestUtils.shaHex(this.userPasswordLoginTextField.getText()));
+    User user1 =
+        userDao.checkUsernameWithPassword(
+            userFX.getUsername(), DigestUtils.shaHex(this.userPasswordLoginTextField.getText()));
     DBManager.closeConnectionSource();
 
     if (user1 != null) {
       // zaladuj usera
       user = user1;
       try {
-        manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH,true));
+        manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH, true));
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -65,7 +78,7 @@ public class LoginController {
   @FXML
   void returnOnAction() {
     try {
-      manager.stage.setScene(manager.changeScene(manager.WELCOMEPAGESCENEPATH,true));
+      manager.stage.setScene(manager.changeScene(manager.WELCOMEPAGESCENEPATH, true));
     } catch (IOException e) {
       e.printStackTrace();
     }

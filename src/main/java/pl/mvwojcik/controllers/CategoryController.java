@@ -1,14 +1,32 @@
 package pl.mvwojcik.controllers;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.io.IOException;
 
 import static pl.mvwojcik.utils.FXMLManager.manager;
 
 public class CategoryController {
+@FXML
+  private Button minimalizeIcon;
 
+  @FXML
+  private Button fullIViewIcon;
+
+  @FXML
+  private Button exitIcon;
+
+
+  @FXML
+  void initialize()
+  {
+    UserToolbarUtils.loadTopToolbars(minimalizeIcon,fullIViewIcon,exitIcon);
+
+  }
   @FXML
   void breakfastOnAction(ActionEvent event) {
     try {

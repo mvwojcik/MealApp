@@ -1,11 +1,14 @@
 package pl.mvwojcik.controllers;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import pl.mvwojcik.Converters.UserConverter;
 import pl.mvwojcik.user.modelfx.UserFX;
+import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.io.IOException;
 
@@ -13,6 +16,12 @@ import static pl.mvwojcik.user.user.ActiveUser.user;
 import static pl.mvwojcik.utils.FXMLManager.manager;
 
 public class UserPageController {
+
+  @FXML private Button minimalizeIcon;
+
+  @FXML private Button fullIViewIcon;
+
+  @FXML private Button exitIcon;
 
   @FXML private Label username;
 
@@ -32,6 +41,8 @@ public class UserPageController {
 
   @FXML
   public void initialize() {
+    UserToolbarUtils.loadTopToolbars(minimalizeIcon,fullIViewIcon,exitIcon);
+
     System.out.println(user.getWeight());
     System.out.println(user.getHeight());
     UserFX userfx = UserConverter.userToUserFX(user);
@@ -43,8 +54,7 @@ public class UserPageController {
     this.points.setText(Integer.toString(userfx.getPoints()));
     this.avatarImage.setImage(
         new Image(this.getClass().getResource(userfx.getIconURL()).toString()));
-     this.age.setText(Integer.toString(userfx.getAge()));
-
+    this.age.setText(Integer.toString(userfx.getAge()));
   }
 
   @FXML
@@ -53,7 +63,7 @@ public class UserPageController {
     manager.lastpages.pop();
     if (!manager.lastpages.empty()) {
       try {
-        manager.stage.setScene(manager.changeScene(manager.lastpages.pop(),true));
+        manager.stage.setScene(manager.changeScene(manager.lastpages.pop(), true));
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -63,7 +73,7 @@ public class UserPageController {
   @FXML
   private void menuOnAction() {
     try {
-      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH,true));
+      manager.stage.setScene(manager.changeScene(manager.MAINSCENEPATH, true));
     } catch (IOException e) {
       e.printStackTrace();
     }
