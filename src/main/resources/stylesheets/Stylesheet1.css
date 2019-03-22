@@ -34,18 +34,25 @@
     -fx-text-fill: -fx-fourth-text;
     -fx-font-size: 12pt;
     -fx-background-radius: 2px;
-    -fx-rotate: 5;
+    -fx-rotate: 4;
 }
 .button:pressed
 {
-    -fx-rotate: 10;
+    -fx-rotate: 6;
 }
 
 .label
 {
-    -fx-text-fill: -fx-primarytext;
+    -fx-text-fill: -fx-fourth;
     -fx-font-size: 12pt;
 }
+
+
+.borderTopIcons
+{
+    -fx-background-color: transparent;
+}
+
 /**
 Table View styling
  */
@@ -130,3 +137,28 @@ choice box
 }
 
    .choice-box > .label { -fx-text-fill: -fx-fourth; }
+
+.jfx-slider > .track {
+    -fx-background-color: -fx-secondary;
+}
+
+/* Styling the slider thumb */
+.jfx-slider > .thumb {
+    -fx-background-color: -fx-thrid;
+}
+
+/* Styling the filled track */
+.jfx-slider > .colored-track {
+    -fx-background-color: -fx-thrid;
+}
+
+/* Styling the animated thumb */
+.jfx-slider > .animated-thumb {
+    -fx-background-color: -fx-thrid;
+}
+
+/* Styling the slider value text inside animated thumb */
+.jfx-slider .slider-value {
+    -fx-fill: -fx-fourth;
+    -fx-stroke: -fx-fourth;
+}

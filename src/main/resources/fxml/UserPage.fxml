@@ -103,19 +103,19 @@
    <top>
       <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="borderTopIcons" fx:id="minimalizeIcon" mnemonicParsing="false">
+            <Button fx:id="minimalizeIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
-                  <FontAwesomeIconView glyphName="MINUS" size="20" wrappingWidth="20.0" />
+                  <FontAwesomeIconView glyphName="MINUS" size="20" styleClass="borderTopIcons" wrappingWidth="20.0" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="fullIViewIcon" mnemonicParsing="false">
+            <Button fx:id="fullIViewIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
-                  <FontAwesomeIconView glyphName="SQUARE" size="20" />
+                  <FontAwesomeIconView glyphName="SQUARE" size="20" styleClass="borderTopIcons" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="exitIcon" mnemonicParsing="false">
+            <Button fx:id="exitIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
-                  <FontAwesomeIconView glyphName="CLOSE" size="20" />
+                  <FontAwesomeIconView glyphName="CLOSE" size="20" styleClass="borderTopIcons" />
                </graphic>
             </Button>
          </children>

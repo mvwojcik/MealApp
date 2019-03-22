@@ -27,3 +27,8 @@
     -fx-background-radius: 20px;
     -fx-font-size: 12pt;
 }
+.borderTopIcons
+{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}

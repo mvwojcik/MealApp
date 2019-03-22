@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXSlider?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -16,36 +17,54 @@
    <right>
       <VBox prefHeight="600.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXToggleButton fx:id="meatToggle" onAction="#toggle" prefHeight="60.0" prefWidth="223.0" selected="true" text="Beef" />
-            <JFXToggleButton fx:id="veggiesToggle" onAction="#toggle" prefHeight="60.0" prefWidth="223.0" selected="true" text="Veggies" />
-            <JFXToggleButton fx:id="supplementsToggle" onAction="#toggle" prefHeight="60.0" prefWidth="223.0" selected="true" text="Supplements" />
-            <JFXToggleButton fx:id="glutenToggle" onAction="#toggle" prefHeight="60.0" prefWidth="223.0" selected="true" text="Gluten" />
-            <JFXToggleButton fx:id="milkToggle" onAction="#toggle" prefHeight="60.0" prefWidth="223.0" selected="true" text="Mleko" />
+            <JFXToggleButton fx:id="meatToggle" alignment="CENTER_LEFT" onAction="#toggle" prefHeight="60.0" prefWidth="400.0" selected="true" text="%ProteinsPage.Meat" toggleColor="#192231" toggleLineColor="#985e6d" unToggleColor="#98878f" unToggleLineColor="#293c57">
+               <padding>
+                  <Insets left="2.0" />
+               </padding></JFXToggleButton>
+            <JFXToggleButton fx:id="veggiesToggle" alignment="CENTER_LEFT" onAction="#toggle" prefHeight="60.0" prefWidth="400.0" selected="true" text="%ProteinsPage.Veggies" toggleColor="#192231" toggleLineColor="#985e6d" unToggleColor="#98878f" unToggleLineColor="#293c57">
+               <padding>
+                  <Insets left="2.0" />
+               </padding></JFXToggleButton>
+            <JFXToggleButton fx:id="supplementsToggle" alignment="CENTER_LEFT" onAction="#toggle" prefHeight="60.0" prefWidth="400.0" selected="true" text="%ProteinsPage.Supplements" toggleColor="#192231" toggleLineColor="#985e6d" unToggleColor="#98878f" unToggleLineColor="#293c57">
+               <padding>
+                  <Insets left="2.0" />
+               </padding></JFXToggleButton>
+            <JFXToggleButton fx:id="glutenToggle" alignment="CENTER_LEFT" onAction="#toggle" prefHeight="60.0" prefWidth="400.0" selected="true" text="%ProteinsPage.Gluten" toggleColor="#192231" toggleLineColor="#985e6d" unToggleColor="#98878f" unToggleLineColor="#293c57">
+               <padding>
+                  <Insets left="2.0" />
+               </padding></JFXToggleButton>
+            <JFXToggleButton fx:id="milkToggle" alignment="CENTER_LEFT" onAction="#toggle" prefHeight="60.0" prefWidth="400.0" selected="true" text="%ProteinsPage.Milk" toggleColor="#192231" toggleLineColor="#985e6d" unToggleColor="#98878f" unToggleLineColor="#293c57">
+               <padding>
+                  <Insets left="2.0" />
+               </padding></JFXToggleButton>
             <Label prefHeight="21.0" prefWidth="212.0" text="Min Kcal" />
             <JFXSlider fx:id="minKcal" majorTickUnit="50.0" max="500.0" minorTickCount="100" onMouseReleased="#dragKcal" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
             <Label prefHeight="21.0" prefWidth="212.0" text="Max Kcal" />
             <JFXSlider fx:id="maxKcal" blockIncrement="0.0" majorTickUnit="50.0" max="500.0" minorTickCount="100" onMouseReleased="#dragKcal" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="500.0" />
          </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </VBox>
    </right>
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="TOP_RIGHT" prefHeight="21.0" prefWidth="609.0" text="PROTEINS" />
+            <Label alignment="CENTER" prefHeight="39.0" prefWidth="875.0" text="PROTEINS" />
             <TableView fx:id="tableView" prefHeight="543.0" prefWidth="600.0">
                <columns>
-                  <TableColumn fx:id="iconColumn" prefWidth="51.0" text="Icon" />
-                  <TableColumn fx:id="nameColumn" prefWidth="84.0" text="Name" />
+                  <TableColumn fx:id="iconColumn" prefWidth="51.0" text="%ProteinsPage.Info" />
+                  <TableColumn fx:id="nameColumn" prefWidth="84.0" text="%ProteinsPage.Name" />
                   <TableColumn fx:id="kcalColumn" prefWidth="97.0" text="KCAL" />
-                  <TableColumn fx:id="proteinsColumn" prefWidth="130.0" text="Proteins" />
-                  <TableColumn fx:id="carbohydratesCloumn" minWidth="0.0" prefWidth="121.0" text="Carbohydrates" />
-                  <TableColumn fx:id="fatColumn" prefWidth="116.0" text="Fat" />
+                  <TableColumn fx:id="proteinsColumn" prefWidth="130.0" text="%ProteinsPage.Proteins" />
+                  <TableColumn fx:id="carbohydratesCloumn" minWidth="0.0" prefWidth="121.0" text="%ProteinsPage.Carbohydrates" />
+                  <TableColumn fx:id="fatColumn" prefWidth="116.0" text="%ProteinsPage.Fat" />
                </columns>
             </TableView>
             <HBox alignment="CENTER" prefHeight="15.0" prefWidth="700.0">
                <children>
-                  <JFXButton buttonType="RAISED" onAction="#backOnAction" prefWidth="800.0" text="Back" />
-                  <JFXButton onAction="#menuOnAction" prefWidth="800.0" text="Menu" />
+                  <JFXButton buttonType="RAISED" onAction="#backOnAction" prefWidth="800.0" text="%BottomTooltip.Back" />
+                  <JFXButton onAction="#menuOnAction" prefWidth="800.0" text="%BottomTooltip.Menu" />
                </children>
             </HBox>
          </children>
@@ -54,17 +73,17 @@
    <top>
       <HBox id="BorderTop" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="1071.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="borderTopIcons" fx:id="minimalizeIcon" mnemonicParsing="false">
+            <Button fx:id="minimalizeIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="MINUS" size="20" wrappingWidth="20.0" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="fullIViewIcon" mnemonicParsing="false">
+            <Button fx:id="fullIViewIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="SQUARE" size="20" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="exitIcon" mnemonicParsing="false">
+            <Button fx:id="exitIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="CLOSE" size="20" />
                </graphic>

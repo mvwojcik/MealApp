@@ -18,17 +18,17 @@
             <VBox prefHeight="395.0" prefWidth="357.0" spacing="40.0">
                <children>
                   <Label fx:id="errmsglabel" text="Login lub hasło nieprawidłowe" underline="true" visible="false" />
-                  <JFXTextField fx:id="userLoginTextField" labelFloat="true" promptText="Username">
+                  <JFXTextField fx:id="userLoginTextField" labelFloat="true" promptText="%Login.Username">
                      <VBox.margin>
                         <Insets left="70.0" right="70.0" top="90.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXPasswordField fx:id="userPasswordLoginTextField" labelFloat="true" promptText="Password">
+                  <JFXPasswordField fx:id="userPasswordLoginTextField" labelFloat="true" promptText="%Login.Password">
                      <VBox.margin>
                         <Insets left="70.0" right="70.0" />
                      </VBox.margin>
                   </JFXPasswordField>
-                  <Button mnemonicParsing="false" onAction="#forgotPasswordOnAction" prefWidth="900.0" text="Zapomniałem hasła">
+                  <Button mnemonicParsing="false" onAction="#forgotPasswordOnAction" prefWidth="900.0" text="%Login.ForgotPassword">
                      <VBox.margin>
                         <Insets bottom="50.0" left="70.0" right="70.0" />
                      </VBox.margin>
@@ -41,25 +41,25 @@
    <bottom>
       <HBox prefHeight="15.0" prefWidth="357.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#returnOnAction" prefHeight="100.0" prefWidth="900.0" text="Return to menu" />
-            <Button mnemonicParsing="false" onAction="#confirmOnAction" opacity="0.38" prefHeight="100.0" prefWidth="900.0" text="Confirm" />
+            <Button mnemonicParsing="false" onAction="#returnOnAction" prefHeight="100.0" prefWidth="900.0" text="%Login.BackToMenu" />
+            <Button mnemonicParsing="false" onAction="#confirmOnAction" opacity="0.38" prefHeight="100.0" prefWidth="900.0" text="%Login.Confirm" />
          </children>
       </HBox>
    </bottom>
    <top>
       <HBox id="BorderTop" alignment="CENTER_RIGHT" prefHeight="13.0" prefWidth="357.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="borderTopIcons" fx:id="minimalizeIcon" mnemonicParsing="false">
+            <Button fx:id="minimalizeIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="MINUS" size="20" wrappingWidth="20.0" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="fullIViewIcon" mnemonicParsing="false">
+            <Button id="ns" fx:id="fullIViewIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="SQUARE" size="20" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="exitIcon" mnemonicParsing="false">
+            <Button fx:id="exitIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="CLOSE" size="20" />
                </graphic>

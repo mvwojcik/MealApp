@@ -46,7 +46,7 @@ public class FillDB {
     ingredient.setCarbohydrates(4.2);
     ingredient.setName("Kurczak");
     ingredient.setAlergens(alergen);
-
+    ingredient.setBase(FoodCategories.PROTEINS);
     ingredientsDao.create(ingredient);
 
     ///////////
@@ -60,6 +60,7 @@ public class FillDB {
     ingredient1.setCarbohydrates(2.2);
     ingredient1.setName("Łosoś");
     ingredient1.setAlergens(alergen1);
+    ingredient1.setBase(FoodCategories.PROTEINS);
     ingredientsDao.create(ingredient1);
     ///////////////////
     Ingredient ingredient2 = new Ingredient();
@@ -71,6 +72,8 @@ public class FillDB {
     ingredient2.setCarbohydrates(14.2);
     ingredient2.setName("Tuńczyk");
     ingredient2.setAlergens(alergen2);
+    ingredient2.setBase(FoodCategories.PROTEINS);
+
     ingredientsDao.create(ingredient2);
     ///////////////////
     Ingredient ingredient3 = new Ingredient();
@@ -82,6 +85,8 @@ public class FillDB {
     ingredient3.setCarbohydrates(33.2);
     ingredient3.setName("Fasola");
     ingredient3.setAlergens(alergen3);
+    ingredient3.setBase(FoodCategories.PROTEINS);
+
     ingredientsDao.create(ingredient3);
   }
 

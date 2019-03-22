@@ -2,6 +2,7 @@
    -fx-primary : #2A2E37;
     -fx-secondary : #FFFF8D;
     -fx-primarytext : #B2B2B2;
+    -fx-primary-border : #8793a9;
 
 }
 .root
@@ -25,6 +26,12 @@
     -fx-background-radius: 20px;
     -fx-font-size: 12pt;
 }
+
+.borderTopIcons
+{
+    -fx-background-color: transparent;
+}
+
 .label
 {
     -fx-text-fill: -fx-primarytext;

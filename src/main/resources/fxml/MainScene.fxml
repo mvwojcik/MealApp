@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.MainController">
+<BorderPane stylesheets="@../stylesheets/Stylesheet1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.MainController">
    <center>
       <AnchorPane prefHeight="427.0" prefWidth="703.0" stylesheets="@../stylesheets/Stylesheet1.css">
          <children>
@@ -53,17 +53,17 @@
    <top>
       <HBox id="BorderTop" alignment="CENTER_RIGHT" prefHeight="8.0" prefWidth="703.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="borderTopIcons" fx:id="minimalizeIcon" mnemonicParsing="false">
+            <Button id="borderTopIcons" fx:id="minimalizeIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
-                  <FontAwesomeIconView glyphName="MINUS" size="20" wrappingWidth="20.0" />
+                  <FontAwesomeIconView glyphName="MINUS" size="20" styleClass="borderTopIcons" wrappingWidth="20.0" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="fullIViewIcon" mnemonicParsing="false">
+            <Button fx:id="fullIViewIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
-                  <FontAwesomeIconView glyphName="SQUARE" size="20" />
+                  <FontAwesomeIconView glyphName="SQUARE" size="20" styleClass="borderTopIcons" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="exitIcon" mnemonicParsing="false">
+            <Button fx:id="exitIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="CLOSE" size="20" />
                </graphic>

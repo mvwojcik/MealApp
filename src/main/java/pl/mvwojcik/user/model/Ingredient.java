@@ -6,7 +6,8 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "ingerdients")
 public class Ingredient {
 
-  @DatabaseField(generatedId = true) private  int id;
+  @DatabaseField(generatedId = true)
+  private int id;
 
   @DatabaseField private String name;
 
@@ -18,11 +19,12 @@ public class Ingredient {
 
   @DatabaseField private double fat;
 
-  @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true) private Alergens alergens;
+  @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
+  private Alergens alergens;
 
+  @DatabaseField private String base;
 
-
-  //@DatabaseField private
+  // @DatabaseField private
 
   public int getKcal() {
     return kcal;
@@ -72,16 +74,40 @@ public class Ingredient {
     this.alergens = alergens;
   }
 
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public String getBase() {
+    return base;
+  }
+
+  public void setBase(String base) {
+    this.base = base;
+  }
+
   @Override
   public String toString() {
-    return "Ingredient{" +
-            "id=" + id +
-            ", name='" + name + '\'' +
-            ", kcal=" + kcal +
-            ", proteins=" + proteins +
-            ", carbohydrates=" + carbohydrates +
-            ", fat=" + fat +
-            ", alergens=" + alergens.toString() +
-            '}';
+    return "Ingredient{"
+        + "id="
+        + id
+        + ", name='"
+        + name
+        + '\''
+        + ", kcal="
+        + kcal
+        + ", proteins="
+        + proteins
+        + ", carbohydrates="
+        + carbohydrates
+        + ", fat="
+        + fat
+        + ", alergens="
+        + alergens.toString()
+        + '}';
   }
 }

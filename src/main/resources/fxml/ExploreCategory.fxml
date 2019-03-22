@@ -16,27 +16,27 @@
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="5.0" />
                </VBox.margin></Label>
-            <Button mnemonicParsing="false" onAction="#breakfastOnAction" prefHeight="200.0" prefWidth="900.0" text="Meat">
+            <Button mnemonicParsing="false" onAction="#breakfastOnAction" prefHeight="200.0" prefWidth="900.0" text="%Category.ProteinsBased">
                <VBox.margin>
                   <Insets left="60.0" right="70.0" top="15.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#dinnerOnAction" prefHeight="200.0" prefWidth="900.0" text="Carbos">
+            <Button mnemonicParsing="false" onAction="#dinnerOnAction" prefHeight="200.0" prefWidth="900.0" text="%Category.CarboBased">
                <VBox.margin>
                   <Insets left="60.0" right="70.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#supperOnAction" prefHeight="200.0" prefWidth="900.0" text="Fats">
+            <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#supperOnAction" prefHeight="200.0" prefWidth="900.0" text="%Category.FatBased">
                <VBox.margin>
                   <Insets left="60.0" right="70.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#snacksOnAction" prefHeight="200.0" prefWidth="900.0" text="Snacks">
+            <Button mnemonicParsing="false" onAction="#snacksOnAction" prefHeight="200.0" prefWidth="900.0" text="%Category.Snacks">
                <VBox.margin>
                   <Insets left="60.0" right="70.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#returnOnAction" prefHeight="200.0" prefWidth="900.0" text="Return">
+            <Button mnemonicParsing="false" onAction="#returnOnAction" prefHeight="200.0" prefWidth="900.0" text="%BottomTooltip.Back">
                <VBox.margin>
                   <Insets bottom="40.0" left="60.0" right="70.0" />
                </VBox.margin>
@@ -51,19 +51,19 @@
       </VBox>
    </center>
    <top>
-      <HBox prefHeight="34.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="borderTopIcons" fx:id="minimalizeIcon" mnemonicParsing="false">
+            <Button id="borderTopIcons" fx:id="minimalizeIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="MINUS" size="20" wrappingWidth="20.0" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="fullIViewIcon" mnemonicParsing="false">
+            <Button fx:id="fullIViewIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="SQUARE" size="20" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="exitIcon" mnemonicParsing="false">
+            <Button fx:id="exitIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="CLOSE" size="20" />
                </graphic>

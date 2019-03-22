@@ -1,10 +1,12 @@
 package pl.mvwojcik.controllers;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import pl.mvwojcik.database.dbutils.DBManager;
 import pl.mvwojcik.user.model.User;
+import pl.mvwojcik.utils.OptionsUtils;
 import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.io.IOException;
@@ -58,5 +60,9 @@ public class WelcomePageController {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+  @FXML
+  void changeLanguage(ActionEvent event) {
+    OptionsUtils.setLanguage(((Button)event.getSource()).getText());
   }
 }

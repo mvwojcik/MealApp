@@ -2,6 +2,7 @@ package pl.mvwojcik.utils;
 
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -11,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
 
 import javax.swing.text.IconView;
 import java.io.IOException;
@@ -48,11 +50,12 @@ public class UserToolbarUtils {
 
   public static JFXButton createButton(String string) {
     JFXButton button = new JFXButton();
-    Image image = new Image(UserToolbarUtils.class.getClass().getResource(string).toString());
-    ImageView imageView = new ImageView(image);
-    imageView.setFitHeight(20);
-    imageView.setFitWidth(20);
-    button.setGraphic(imageView);
+      FontAwesomeIcon icon =FontAwesomeIcon.ARROW_RIGHT;
+
+      FontAwesomeIconView iconView = new FontAwesomeIconView(icon);
+      iconView.setGlyphSize(20);
+      iconView.setGlyphSize(20);
+      button.setGraphic(iconView);
     return button;
   }
 }

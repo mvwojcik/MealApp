@@ -20,11 +20,11 @@
                <children>
                   <VBox prefHeight="305.0" prefWidth="280.0" spacing="20.0">
                      <children>
-                        <JFXTextField fx:id="usernameTextField" labelFloat="true" promptText="Username" />
-                        <JFXPasswordField fx:id="passwordTextField" promptText="Password" />
-                        <JFXPasswordField fx:id="repeatPasswordTextField" promptText="Repeat Password" />
-                        <JFXTextField fx:id="emailTextField" promptText="Email" />
-                        <JFXDatePicker fx:id="ageDatePicker" prefHeight="31.0" prefWidth="342.0" promptText="Date of Born" />
+                        <JFXTextField fx:id="usernameTextField" labelFloat="true" promptText="%Register.Username" />
+                        <JFXPasswordField fx:id="passwordTextField" promptText="%Register.Password" />
+                        <JFXPasswordField fx:id="repeatPasswordTextField" promptText="%Register.RepeatPassword" />
+                        <JFXTextField fx:id="emailTextField" promptText="%Register.Email" />
+                        <JFXDatePicker fx:id="ageDatePicker" prefHeight="31.0" prefWidth="342.0" promptText="%Register.DateOfBorn" />
                      </children>
                      <padding>
                         <Insets top="20.0" />
@@ -32,9 +32,9 @@
                   </VBox>
                   <VBox prefHeight="305.0" prefWidth="280.0" spacing="20.0">
                      <children>
-                        <JFXTextField fx:id="heightTextField" labelFloat="true" promptText="Height" />
-                        <JFXTextField fx:id="weightTextField" promptText="Weight" />
-                        <JFXComboBox fx:id="genderComboBox" prefHeight="31.0" prefWidth="289.0" promptText="Gender" />
+                        <JFXTextField fx:id="heightTextField" labelFloat="true" promptText="%Register.Height" />
+                        <JFXTextField fx:id="weightTextField" promptText="%Register.Weight" />
+                        <JFXComboBox fx:id="genderComboBox" prefHeight="31.0" prefWidth="289.0" promptText="%Register.Gender" />
                      </children>
                      <padding>
                         <Insets top="20.0" />
@@ -48,8 +48,8 @@
    <bottom>
       <HBox prefHeight="26.0" prefWidth="600.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#returnOnAction" prefHeight="40.0" prefWidth="140.0" text="Return to Menu" />
-            <Button mnemonicParsing="false" onAction="#confirmOnAction" prefHeight="40.0" prefWidth="140.0" text="Confirm" />
+            <Button mnemonicParsing="false" onAction="#returnOnAction" prefHeight="40.0" prefWidth="140.0" text="%Login.BackToMenu" />
+            <Button mnemonicParsing="false" onAction="#confirmOnAction" prefHeight="40.0" prefWidth="140.0" text="%Login.Confirm" />
          </children>
          <padding>
             <Insets left="100.0" right="100.0" />
@@ -62,17 +62,17 @@
    <top>
       <HBox id="BorderTop" alignment="CENTER_RIGHT" prefHeight="3.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="borderTopIcons" fx:id="minimalizeIcon" mnemonicParsing="false">
+            <Button fx:id="minimalizeIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="MINUS" size="20" wrappingWidth="20.0" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="fullIViewIcon" mnemonicParsing="false">
+            <Button fx:id="fullIViewIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="SQUARE" size="20" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="exitIcon" mnemonicParsing="false">
+            <Button fx:id="exitIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="CLOSE" size="20" />
                </graphic>

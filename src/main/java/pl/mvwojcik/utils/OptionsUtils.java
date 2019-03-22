@@ -8,9 +8,9 @@ public class OptionsUtils {
 
   public static UserSettings activeUserSettings = defaultUserSettings();
 
-  public static void setInternatiolization() {
-    Locale.setDefault(new Locale("pl"));
-  }
+
+  private static Locale plLocale = new Locale("pl");
+  private static Locale enLocale = new Locale("eng");
 
   public static UserSettings defaultUserSettings() {
     UserSettings userSettings = new UserSettings();
@@ -18,5 +18,14 @@ public class OptionsUtils {
     userSettings.setLanguage(UserSettings.languages[0]);
     userSettings.setTheme(UserSettings.themes[1]);
     return userSettings;
+  }
+  public static void setLanguage(String language)
+  {
+
+    if (language.equals("PL")) {
+      Locale.setDefault(plLocale);
+    } else {
+      Locale.setDefault(enLocale);
+    }
   }
 }

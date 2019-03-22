@@ -5,9 +5,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="120.0" stylesheets="@../stylesheets/Stylesheet1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mvwojcik.controllers.UserPanelController">
    <children>
-      <Button mnemonicParsing="false" onAction="#profileOnAction" prefHeight="400.0" prefWidth="120.0" text="Twój Profil" />
-      <Button mnemonicParsing="false" onAction="#mealPlanOnAction" prefHeight="400.0" prefWidth="120.0" text="Plan żywienia" />
-      <Button mnemonicParsing="false" onAction="#favouritesOnAction" prefHeight="400.0" prefWidth="120.0" text="ulubione" />
-      <Button mnemonicParsing="false" onAction="#addNewMealOnAction" prefHeight="400.0" prefWidth="120.0" text="dodaj nową" />
+      <Button mnemonicParsing="false" onAction="#profileOnAction" prefHeight="400.0" prefWidth="120.0" text="%Tooltip.Profile" />
+      <Button mnemonicParsing="false" onAction="#mealPlanOnAction" prefHeight="400.0" prefWidth="120.0" text="%Tooltip.MealPlan" />
+      <Button mnemonicParsing="false" onAction="#favouritesOnAction" prefHeight="400.0" prefWidth="120.0" text="%Tooltip.Favourites" />
+      <Button mnemonicParsing="false" onAction="#addNewMealOnAction" prefHeight="400.0" prefWidth="120.0" text="%Tooltip.AddNew" />
    </children>
 </VBox>

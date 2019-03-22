@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import pl.mvwojcik.database.dao.UserDao;
 import pl.mvwojcik.user.model.User;
 import pl.mvwojcik.user.model.UserSettings;
+import pl.mvwojcik.utils.OptionsUtils;
 import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.io.IOException;
@@ -68,6 +69,7 @@ public class OptionsController {
     userSettings.setLanguage(this.languageChoiceBox.getSelectionModel().getSelectedItem());
     userSettings.setTheme(this.themeGroup.getSelectedToggle().toString());
 
+    OptionsUtils.setLanguage(userSettings.getLanguage());
     user.setUserSettingsId(userSettings);
 
     // zrobic metode w userdao wrzucającą ustawienia do db potem create

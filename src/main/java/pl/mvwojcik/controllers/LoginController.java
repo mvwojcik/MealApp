@@ -13,6 +13,7 @@ import pl.mvwojcik.database.dao.UserDao;
 import pl.mvwojcik.database.dbutils.DBManager;
 import pl.mvwojcik.user.model.User;
 import pl.mvwojcik.user.modelfx.UserFX;
+import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.io.IOException;
 
@@ -40,6 +41,7 @@ public class LoginController {
 
   @FXML
   public void initialize() {
+    UserToolbarUtils.loadTopToolbars(minimalizeIcon,fullIViewIcon,exitIcon);
     userFX = new UserFX();
     this.userLoginTextField.textProperty().bindBidirectional(this.userFX.usernameProperty());
     this.userPasswordLoginTextField

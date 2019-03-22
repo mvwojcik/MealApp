@@ -15,61 +15,47 @@
    <bottom>
       <HBox prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#doMenu" prefHeight="200.0" prefWidth="800.0" text="Powrót do menu" />
-            <Button mnemonicParsing="false" onAction="#confirmOnAction" prefHeight="40.0" prefWidth="800.0" text="Potwierdź" />
+            <Button mnemonicParsing="false" onAction="#doMenu" prefHeight="200.0" prefWidth="800.0" text="%Login.BackToMenu" />
+            <Button mnemonicParsing="false" onAction="#confirmOnAction" prefHeight="40.0" prefWidth="800.0" text="%Login.Confirm" />
          </children>
       </HBox>
    </bottom>
    <center>
       <VBox prefHeight="381.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="0.0" prefWidth="0.0" spacing="61.0">
+            <HBox prefHeight="187.0" prefWidth="700.0">
                <children>
-                  <Label text="Jezyk">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Label>
-                  <ChoiceBox fx:id="languageChoiceBox" prefWidth="150.0">
-                     <HBox.margin>
-                        <Insets right="240.0" />
-                     </HBox.margin>
-                  </ChoiceBox>
+                  <VBox prefHeight="144.0" prefWidth="228.0" spacing="35.0">
+                     <children>
+                        <Label text="%Settings.Language" />
+                        <Label text="%Settings.Currency" />
+                        <Label text="%Settings.Theme" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="187.0" prefWidth="526.0" spacing="20.0">
+                     <children>
+                        <ChoiceBox fx:id="languageChoiceBox" prefWidth="150.0" />
+                        <ChoiceBox fx:id="currencyChoiceBox" prefWidth="150.0" />
+                        <HBox spacing="50.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" selected="true" text="%Settings.Theme.Dark">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="themeGroup" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text="%Settings.Theme.Light" toggleGroup="$themeGroup">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </RadioButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
-            <HBox spacing="50.0">
-               <children>
-                  <Label text="Waluta">
-                     <padding>
-                        <Insets left="50.0" />
-                     </padding>
-                  </Label>
-                  <ChoiceBox fx:id="currencyChoiceBox" prefWidth="150.0">
-                     <HBox.margin>
-                        <Insets right="240.0" />
-                     </HBox.margin>
-                  </ChoiceBox>
-               </children>
-            </HBox>
-            <HBox spacing="50.0">
-               <children>
-                  <Label text="Motyw">
-                     <padding>
-                        <Insets left="50.0" />
-                     </padding>
-                  </Label>
-                  <RadioButton mnemonicParsing="false" selected="true" text="Ciemny">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="themeGroup" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Jasny" toggleGroup="$themeGroup">
-                     <HBox.margin>
-                        <Insets right="240.0" />
-                     </HBox.margin>
-                  </RadioButton>
-               </children>
-            </HBox>
+            <HBox prefHeight="0.0" prefWidth="0.0" spacing="61.0" />
+            <HBox spacing="50.0" />
          </children>
          <BorderPane.margin>
             <Insets bottom="100.0" top="100.0" />
@@ -79,17 +65,17 @@
    <top>
       <HBox id="BorderTop" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="700.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="borderTopIcons" fx:id="minimalizeIcon" mnemonicParsing="false">
+            <Button fx:id="minimalizeIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="MINUS" size="20" wrappingWidth="20.0" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="fullIViewIcon" mnemonicParsing="false">
+            <Button fx:id="fullIViewIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="SQUARE" size="20" />
                </graphic>
             </Button>
-            <Button id="borderTopIcons" fx:id="exitIcon" mnemonicParsing="false">
+            <Button fx:id="exitIcon" mnemonicParsing="false" styleClass="borderTopIcons">
                <graphic>
                   <FontAwesomeIconView glyphName="CLOSE" size="20" />
                </graphic>
