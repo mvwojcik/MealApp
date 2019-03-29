@@ -1,6 +1,6 @@
 package pl.mvwojcik.utils;
 
-import pl.mvwojcik.user.model.Ingredient;
+import pl.mvwojcik.model.Ingredient;
 
 public class ActiveIngredient {
     public static Ingredient activeIngredient;

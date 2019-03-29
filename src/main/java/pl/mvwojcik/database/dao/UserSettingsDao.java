@@ -4,8 +4,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
 import pl.mvwojcik.database.dbutils.DBManager;
-import pl.mvwojcik.user.model.User;
-import pl.mvwojcik.user.model.UserSettings;
+import pl.mvwojcik.model.UserSettings;
 
 import java.sql.SQLException;
 import java.util.List;

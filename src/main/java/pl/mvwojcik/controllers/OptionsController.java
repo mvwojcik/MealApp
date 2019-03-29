@@ -1,15 +1,12 @@
 package pl.mvwojcik.controllers;
 
-import com.jfoenix.controls.JFXDrawer;
-import com.jfoenix.controls.JFXHamburger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import pl.mvwojcik.database.dao.UserDao;
-import pl.mvwojcik.user.model.User;
-import pl.mvwojcik.user.model.UserSettings;
+import pl.mvwojcik.model.UserSettings;
 import pl.mvwojcik.utils.OptionsUtils;
 import pl.mvwojcik.utils.UserToolbarUtils;
 
@@ -18,7 +15,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 import static pl.mvwojcik.utils.FXMLManager.manager;
-import static pl.mvwojcik.user.user.ActiveUser.user;
+import static pl.mvwojcik.model.ActiveUser.user;
 
 public class OptionsController {
 

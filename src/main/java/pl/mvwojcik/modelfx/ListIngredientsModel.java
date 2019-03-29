@@ -1,12 +1,11 @@
-package pl.mvwojcik.user.modelfx;
+package pl.mvwojcik.modelfx;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import pl.mvwojcik.Converters.IngredientsConverter;
+import pl.mvwojcik.converters.IngredientsConverter;
 import pl.mvwojcik.database.dao.IngredientsDao;
-import pl.mvwojcik.user.model.Ingredient;
+import pl.mvwojcik.model.Ingredient;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class ListIngredientsModel {

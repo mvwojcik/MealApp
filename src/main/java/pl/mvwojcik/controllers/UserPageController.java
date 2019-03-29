@@ -1,18 +1,17 @@
 package pl.mvwojcik.controllers;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import pl.mvwojcik.Converters.UserConverter;
-import pl.mvwojcik.user.modelfx.UserFX;
+import pl.mvwojcik.converters.UserConverter;
+import pl.mvwojcik.modelfx.UserFX;
 import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.io.IOException;
 
-import static pl.mvwojcik.user.user.ActiveUser.user;
+import static pl.mvwojcik.model.ActiveUser.user;
 import static pl.mvwojcik.utils.FXMLManager.manager;
 
 public class UserPageController {

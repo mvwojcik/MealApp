@@ -3,7 +3,7 @@ package pl.mvwojcik.database.dbutils;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import pl.mvwojcik.user.model.User;
+import pl.mvwojcik.model.User;
 
 import java.io.IOException;
 import java.sql.SQLException;

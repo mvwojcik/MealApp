@@ -5,8 +5,7 @@ import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import pl.mvwojcik.database.dbutils.DBManager;
-import pl.mvwojcik.user.model.Alergens;
-import pl.mvwojcik.user.model.Ingredient;
+import pl.mvwojcik.model.Alergens;
 
 import java.sql.SQLException;
 

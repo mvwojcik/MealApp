@@ -6,22 +6,15 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RegexValidator;
-import com.jfoenix.validation.RequiredFieldValidator;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import de.jensd.fx.glyphs.materialicons.MaterialIcon;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.util.converter.NumberStringConverter;
 import org.apache.commons.codec.digest.DigestUtils;
 import pl.mvwojcik.database.dao.UserDao;
-import pl.mvwojcik.Converters.UserConverter;
-import pl.mvwojcik.user.model.User;
-import pl.mvwojcik.user.modelfx.UserFX;
+import pl.mvwojcik.converters.UserConverter;
+import pl.mvwojcik.model.User;
+import pl.mvwojcik.modelfx.UserFX;
 import pl.mvwojcik.database.dbutils.DBManager;
-import pl.mvwojcik.user.user.ActiveUser;
+import pl.mvwojcik.model.ActiveUser;
 import pl.mvwojcik.utils.DialogUtils;
 import pl.mvwojcik.utils.UserToolbarUtils;
 
@@ -104,11 +97,12 @@ public class RegisterController {
 
       DBManager.createTable();
 
-      userFX.setPassword(DigestUtils.shaHex(this.passwordTextField.getText()));
       User user = UserConverter.userFXtoUser(userFX);
 
       UserDao userDao = new UserDao();
       if (userDao.checkIfAvailable(userFX)) {
+        user.setPassword(DigestUtils.shaHex(this.passwordTextField.getText()));
+
         userDao.create(user);
         ActiveUser.user = user;
         try {
@@ -159,7 +153,12 @@ public class RegisterController {
     NumberValidator numberValidator = new NumberValidator();
     heightTextField.getValidators().add(numberValidator);
 
-    numberValidator.setMessage("Only number form 10-250");
+    RegexValidator regexValidator = new RegexValidator();
+    regexValidator.setRegexPattern("[1-2]?[0-9][0-9]");
+    heightTextField.getValidators().add(regexValidator);
+
+    numberValidator.setMessage("Only numbers");
+    regexValidator.setMessage("Wrong value");
 
     heightTextField
         .focusedProperty()
@@ -176,8 +175,12 @@ public class RegisterController {
   private void initWeightValidator() {
     NumberValidator numberValidator = new NumberValidator();
     weightTextField.getValidators().add(numberValidator);
+RegexValidator regexValidator = new RegexValidator();
+    regexValidator.setRegexPattern("[1-2]?[0-9][0-9]");
 
-    numberValidator.setMessage("Only number form 10-150");
+weightTextField.getValidators().add(regexValidator);
+    numberValidator.setMessage("Only numbers");
+    regexValidator.setMessage("Wrong value");
 
     weightTextField
         .focusedProperty()

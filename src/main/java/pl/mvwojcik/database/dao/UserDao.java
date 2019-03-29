@@ -6,8 +6,8 @@ import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import pl.mvwojcik.database.dbutils.DBManager;
-import pl.mvwojcik.user.model.User;
-import pl.mvwojcik.user.modelfx.UserFX;
+import pl.mvwojcik.model.User;
+import pl.mvwojcik.modelfx.UserFX;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -18,13 +18,13 @@ public class FXMLManager implements Initializable {
 
   public static final String OPTIONSSCENEPATH = "/fxml/OptionsScene.fxml";
   public static final String MAINSCENEPATH = "/fxml/MainScene.fxml";
-  public static final String LOGINSCENEPATH = "/fxml/loginScene.fxml";
+  public static final String LOGINSCENEPATH = "/fxml/LoginScene.fxml";
   public static final String REGISTERSCENEPATH = "/fxml/registerScene.fxml";
   public static final String EXPLORESCENEPATH = "/fxml/ExploreCategory.fxml";
   public static final String EXPLOREPAGESCENEPATH = "/fxml/ExplorePage.fxml";
   public static final String USERPAGESCENEPATH = "/fxml/UserPage.fxml";
   public static final String WELCOMEPAGESCENEPATH = "/fxml/WelcomePage.fxml";
-  public static final String PROTEINSPAGESCENEPATH = "/fxml/proteinsPage.fxml";
+  public static final String PROTEINSPAGESCENEPATH = "/fxml/ProteinsPage.fxml";
 
 
   public static double x =0;

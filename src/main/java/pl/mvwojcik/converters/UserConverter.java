@@ -1,7 +1,7 @@
-package pl.mvwojcik.Converters;
+package pl.mvwojcik.converters;
 
-import pl.mvwojcik.user.model.User;
-import pl.mvwojcik.user.modelfx.UserFX;
+import pl.mvwojcik.model.User;
+import pl.mvwojcik.modelfx.UserFX;
 import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.time.LocalDate;

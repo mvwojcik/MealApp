@@ -1,6 +1,4 @@
-package pl.mvwojcik.user.user;
-
-import pl.mvwojcik.user.model.User;
+package pl.mvwojcik.model;
 
 public class ActiveUser {
   public static User user;

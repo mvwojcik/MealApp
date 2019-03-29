@@ -1,13 +1,11 @@
 package pl.mvwojcik.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
 import static pl.mvwojcik.utils.FXMLManager.manager;
-import static pl.mvwojcik.user.user.ActiveUser.user;
 
 public class UserPanelController {
 

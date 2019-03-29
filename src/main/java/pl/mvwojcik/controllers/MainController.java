@@ -1,6 +1,5 @@
 package pl.mvwojcik.controllers;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,7 +10,6 @@ import pl.mvwojcik.utils.UserToolbarUtils;
 import java.io.IOException;
 
 import static pl.mvwojcik.utils.FXMLManager.manager;
-import static pl.mvwojcik.user.user.ActiveUser.user;
 
 public class MainController {
   @FXML private BorderPane borderpane;

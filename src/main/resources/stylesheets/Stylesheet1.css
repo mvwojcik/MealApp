@@ -162,3 +162,7 @@ choice box
     -fx-fill: -fx-fourth;
     -fx-stroke: -fx-fourth;
 }
+.scroll-pane
+{
+    -fx-background-color: transparent;
+}

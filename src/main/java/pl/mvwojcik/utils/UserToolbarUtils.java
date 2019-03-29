@@ -25,8 +25,8 @@ public class UserToolbarUtils {
 
     public static void loadTopToolbars(Button minimalizeIcon, Button fullViewIcon, Button exitIcon)
     {
-        minimalizeIcon.setOnMouseReleased(event -> manager.stage.setIconified(true));
-        fullViewIcon.setOnMouseReleased(event -> manager.stage.setMaximized(true));
+        minimalizeIcon.setOnMouseReleased(event -> ((Stage)((Button)event.getSource()).getScene().getWindow()).setIconified(true));
+        fullViewIcon.setOnMouseReleased(event -> ((Stage)((Button)event.getSource()).getScene().getWindow()).setMaximized(true));
         exitIcon.setOnMouseReleased(event -> ((Stage)((Button)event.getSource()).getScene().getWindow()).close());
     }
 

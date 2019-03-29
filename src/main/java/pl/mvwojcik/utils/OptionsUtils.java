@@ -1,6 +1,6 @@
 package pl.mvwojcik.utils;
 
-import pl.mvwojcik.user.model.UserSettings;
+import pl.mvwojcik.model.UserSettings;
 
 import java.util.Locale;
 

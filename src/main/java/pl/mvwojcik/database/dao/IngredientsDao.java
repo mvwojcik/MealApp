@@ -2,12 +2,10 @@ package pl.mvwojcik.database.dao;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import pl.mvwojcik.database.dbutils.DBManager;
-import pl.mvwojcik.user.model.Ingredient;
-import pl.mvwojcik.user.model.User;
+import pl.mvwojcik.model.Ingredient;
 
 import java.sql.SQLException;
 import java.util.List;

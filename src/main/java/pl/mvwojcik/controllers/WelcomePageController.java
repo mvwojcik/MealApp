@@ -1,18 +1,17 @@
 package pl.mvwojcik.controllers;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import pl.mvwojcik.database.dbutils.DBManager;
-import pl.mvwojcik.user.model.User;
+import pl.mvwojcik.model.User;
 import pl.mvwojcik.utils.OptionsUtils;
 import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.io.IOException;
 
 import static pl.mvwojcik.utils.FXMLManager.manager;
-import static pl.mvwojcik.user.user.ActiveUser.user;
+import static pl.mvwojcik.model.ActiveUser.user;
 
 public class WelcomePageController {
 

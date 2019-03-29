@@ -1,11 +1,10 @@
 package pl.mvwojcik.utils;
 
-import pl.mvwojcik.database.dao.AlergensDao;
 import pl.mvwojcik.database.dao.IngredientsDao;
 import pl.mvwojcik.database.dao.UserSettingsDao;
-import pl.mvwojcik.user.model.Alergens;
-import pl.mvwojcik.user.model.Ingredient;
-import pl.mvwojcik.user.model.UserSettings;
+import pl.mvwojcik.model.Alergens;
+import pl.mvwojcik.model.Ingredient;
+import pl.mvwojcik.model.UserSettings;
 
 public class FillDB {
 

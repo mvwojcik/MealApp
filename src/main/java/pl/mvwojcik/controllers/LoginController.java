@@ -2,7 +2,6 @@ package pl.mvwojcik.controllers;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -11,14 +10,14 @@ import javafx.scene.control.Label;
 import org.apache.commons.codec.digest.DigestUtils;
 import pl.mvwojcik.database.dao.UserDao;
 import pl.mvwojcik.database.dbutils.DBManager;
-import pl.mvwojcik.user.model.User;
-import pl.mvwojcik.user.modelfx.UserFX;
+import pl.mvwojcik.model.User;
+import pl.mvwojcik.modelfx.UserFX;
 import pl.mvwojcik.utils.UserToolbarUtils;
 
 import java.io.IOException;
 
 import static pl.mvwojcik.utils.FXMLManager.manager;
-import static pl.mvwojcik.user.user.ActiveUser.user;
+import static pl.mvwojcik.model.ActiveUser.user;
 
 public class LoginController {
 

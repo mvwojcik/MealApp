@@ -1,7 +1,7 @@
-package pl.mvwojcik.Converters;
+package pl.mvwojcik.converters;
 
-import pl.mvwojcik.user.model.Ingredient;
-import pl.mvwojcik.user.modelfx.IngredientFX;
+import pl.mvwojcik.model.Ingredient;
+import pl.mvwojcik.modelfx.IngredientFX;
 
 public class IngredientsConverter {
 
