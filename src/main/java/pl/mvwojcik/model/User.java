@@ -21,8 +21,6 @@ public class User {
   // @DatabaseField(columnName = "id", generatedId = true/*, unique = true, canBeNull = false*/)
   // private int id;
 
-  @DatabaseField(columnName = "userSettingsId", foreign = true)
-  private UserSettings userSettingsId;
 
   @DatabaseField(columnName = "username", unique = true, canBeNull = false)
   private String username;
@@ -54,4 +52,6 @@ public class User {
   @DatabaseField(columnName = "imageurl")
   private String imageurl;
 
+  @DatabaseField(columnName = "userSettingsId", foreign = true)
+  private UserSettings userSettingsId;
 }

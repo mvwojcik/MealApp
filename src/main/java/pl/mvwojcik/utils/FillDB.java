@@ -1,5 +1,6 @@
 package pl.mvwojcik.utils;
 
+import pl.mvwojcik.database.dao.AlergensDao;
 import pl.mvwojcik.database.dao.IngredientsDao;
 import pl.mvwojcik.database.dao.UserSettingsDao;
 import pl.mvwojcik.model.Alergens;
@@ -31,12 +32,12 @@ public class FillDB {
     IngredientsDao ingredientsDao = new IngredientsDao();
     ingredientsDao.dropTable();
     ingredientsDao.createTableifNotExsist();
-   // AlergensDao alergensDao = new AlergensDao();
- //   alergensDao.dropTable();
-  //  alergensDao.createTableifNotExsist();
+    AlergensDao alergensDao = new AlergensDao();
+    alergensDao.dropTable();
+    alergensDao.createTableifNotExsist();
 
     Alergens alergen = createAlergensMeat();
-  //  alergensDao.create(alergen);
+    alergensDao.create(alergen);
 
     Ingredient ingredient = new Ingredient();
     ingredient.setProteins(72);
@@ -52,7 +53,7 @@ public class FillDB {
     Alergens alergen1 = createAlergensMeat();
     Ingredient ingredient1 = new Ingredient();
 
-    //alergensDao.create(alergen1);
+    alergensDao.create(alergen1);
     ingredient1.setProteins(82);
     ingredient1.setKcal(390);
     ingredient1.setFat(10.4);
@@ -64,7 +65,7 @@ public class FillDB {
     ///////////////////
     Ingredient ingredient2 = new Ingredient();
     Alergens alergen2 = createAlergensMeat();
-   // alergensDao.create(alergen2);
+    alergensDao.create(alergen2);
     ingredient2.setProteins(62);
     ingredient2.setKcal(490);
     ingredient2.setFat(20.4);
@@ -77,7 +78,7 @@ public class FillDB {
     ///////////////////
     Ingredient ingredient3 = new Ingredient();
     Alergens alergen3 = createAlergensVeggies();
-    //alergensDao.create(alergen3);
+    alergensDao.create(alergen3);
     ingredient3.setProteins(44);
     ingredient3.setKcal(300);
     ingredient3.setFat(10.4);

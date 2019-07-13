@@ -26,9 +26,6 @@ public class DialogUtils {
     dialog.setHeaderText(bundle.getString("Edit.Header"));
     dialog.setContentText(bundle.getString("Edit.Content"));
     Optional<String> result = dialog.showAndWait();
-    if (result.isPresent()) {
-      return result.get();
-    }
-    return null;
+    return result.orElse(null);
   }
 }
