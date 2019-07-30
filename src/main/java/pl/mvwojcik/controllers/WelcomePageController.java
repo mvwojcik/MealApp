@@ -63,5 +63,10 @@ public class WelcomePageController {
   @FXML
   void changeLanguage(ActionEvent event) {
     OptionsUtils.setLanguage(((Button)event.getSource()).getText());
+    try {
+      manager.stage.setScene(manager.changeScene(manager.WELCOMEPAGESCENEPATH,true));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }
